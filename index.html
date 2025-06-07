@@ -85,7 +85,15 @@
           data.tiles.forEach((tile, index) => {
             console.log(`Rendering tile ${index + 1}:`, tile.title);
             const tileElement = document.createElement('a');
-            tileElement.href = tile.link.startsWith('/') ? tile.link : '/' + tile.link;
+
+            // Check if it's an external URL or mailto link
+            const isExternal = tile.link.startsWith('http://') ||
+                               tile.link.startsWith('https://') ||
+                               tile.link.startsWith('mailto:');
+
+            // Only prepend slash for internal links that don't already have one
+            tileElement.href = isExternal ? tile.link :
+                              (tile.link.startsWith('/') ? tile.link : '/' + tile.link);
 
             // Don't open blog links in a new tab
             if (tile.type !== 'blog') {
