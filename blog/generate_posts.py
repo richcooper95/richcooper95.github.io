@@ -79,8 +79,8 @@ def generate_post_html(metadata, content, slug):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{metadata.get('title', 'Blog Post')}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../static/style.css">
-    <link rel="stylesheet" href="../../blog.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/blog/blog.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📝</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -97,7 +97,7 @@ def generate_post_html(metadata, content, slug):
 
         <main class="content-container blog-content">
             <div class="blog-header">
-                <a href="../../" class="home-link">← Back to Blog</a>
+                <a href="/blog/" class="home-link">← Back to Blog</a>
             </div>
 
             <article class="blog-post">

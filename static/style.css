@@ -14,7 +14,7 @@ body {
 }
 
 .background-image {
-    background-image: url('../static/images/bowness_on_solway.jpg');
+    background-image: url('/static/images/bowness_on_solway.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

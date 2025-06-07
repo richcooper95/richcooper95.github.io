@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rich Barton-Cooper</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="/static/style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +41,7 @@
         try {
           console.log('Fetching content...');
           // Add cache-busting parameter
-          const response = await fetch('data/tiles.json?' + new Date().getTime());
+          const response = await fetch('/data/tiles.json?' + new Date().getTime());
           const data = await response.json();
           console.log('Loaded data:', data);
 
@@ -54,7 +54,7 @@
               <small><i>${header.subDescription}</i></small>
             </div>
             <div>
-              <img src="${header.image}" alt="${header.imageAlt}" class="header-image">
+              <img src="${header.image.startsWith('/') ? header.image : '/' + header.image}" alt="${header.imageAlt}" class="header-image">
             </div>
           `;
           document.getElementById('header-section').style.backgroundImage = header.gradient;
@@ -71,7 +71,7 @@
           for (const tile of data.tiles) {
             if (tile.type === 'blog') {
               try {
-                const blogResponse = await fetch('blog/posts.json?' + new Date().getTime());
+                const blogResponse = await fetch('/blog/posts.json?' + new Date().getTime());
                 blogPosts = await blogResponse.json();
                 console.log('Loaded blog posts:', blogPosts);
               } catch (blogError) {
@@ -85,7 +85,7 @@
           data.tiles.forEach((tile, index) => {
             console.log(`Rendering tile ${index + 1}:`, tile.title);
             const tileElement = document.createElement('a');
-            tileElement.href = tile.link;
+            tileElement.href = tile.link.startsWith('/') ? tile.link : '/' + tile.link;
 
             // Don't open blog links in a new tab
             if (tile.type !== 'blog') {
@@ -109,7 +109,7 @@
               // Left column with title and description
               blogContent += `
                 <div class="blog-tile-column left-column">
-                  <img src="${tile.image}" alt="${tile.imageAlt}" class="blog-icon">
+                  <img src="${tile.image.startsWith('/') ? tile.image : '/' + tile.image}" alt="${tile.imageAlt}" class="blog-icon">
                   <h3 class="blog-title">${tile.blogTitle || 'Rich Text'}</h3>
                   <p class="blog-subtitle">${tile.description}</p>
                 </div>
@@ -128,7 +128,7 @@
                     : post.description;
 
                   blogContent += `
-                    <div class="recent-post" data-post-url="blog/posts/generated/${post.slug}.html">
+                    <div class="recent-post" data-post-url="/blog/posts/generated/${post.slug}.html">
                       <h4>${post.title}</h4>
                       <p class="post-description">${shortDescription}</p>
                     </div>
@@ -163,7 +163,7 @@
             } else {
               // Standard tile
               tileElement.innerHTML = `
-                <img src="${tile.image}" alt="${tile.imageAlt}" class="tile-image">
+                <img src="${tile.image.startsWith('/') ? tile.image : '/' + tile.image}" alt="${tile.imageAlt}" class="tile-image">
                 <p class="tile-description">${tile.description}</p>
               `;
             }

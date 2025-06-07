@@ -4,7 +4,7 @@
     "emoji": "👋",
     "description": "I'm a software engineer based in Ware, UK.",
     "subDescription": "(Where? Ware. Just north of London.)",
-    "image": "static/images/me.jpeg",
+    "image": "/static/images/me.jpeg",
     "imageAlt": "Rich Barton-Cooper",
     "gradient": "linear-gradient(135deg, rgba(255, 198, 92, 0.9), rgba(255, 241, 168, 0.9))"
   },
@@ -12,7 +12,7 @@
     {
         "title": "Blog",
         "description": "My blog, where I write about AI safety, tech, and other interests.",
-        "link": "blog/",
+        "link": "/blog/",
         "image": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-size='20'>📝</text></svg>",
         "imageAlt": "Blog icon",
         "gradient": "linear-gradient(135deg, rgba(155, 255, 198, 0.9), rgba(198, 179, 255, 0.9))",
@@ -24,7 +24,7 @@
       "title": "Github",
       "description": "Where my code lives.",
       "link": "https://github.com/richcooper95",
-      "image": "static/images/github.png",
+      "image": "/static/images/github.png",
       "imageAlt": "Github logo",
       "gradient": "linear-gradient(135deg, rgba(179, 255, 155, 0.9), rgba(255, 198, 255, 0.9))",
       "columnSpan": 1
@@ -33,7 +33,7 @@
       "title": "LinkedIn",
       "description": "Where my CV lives.",
       "link": "https://www.linkedin.com/in/rich-cooper/",
-      "image": "static/images/linkedin.png",
+      "image": "/static/images/linkedin.png",
       "imageAlt": "LinkedIn logo",
       "gradient": "linear-gradient(135deg, rgba(155, 206, 255, 0.9), rgba(198, 255, 255, 0.9))",
       "columnSpan": 1
@@ -42,7 +42,7 @@
       "title": "Nomination Whist",
       "description": "A site I built to score and record games of Nomination Whist.",
       "link": "https://whist.bartoncooper.com/",
-      "image": "static/images/card-drawing-N.png",
+      "image": "/static/images/card-drawing-N.png",
       "imageAlt": "What's Trumps logo",
       "gradient": "linear-gradient(135deg, rgba(255, 155, 155, 0.9), rgba(255, 218, 218, 0.9))",
       "columnSpan": 1
@@ -51,7 +51,7 @@
       "title": "2048",
       "description": "My terminal-based implementation of the 2048 game.",
       "link": "https://github.com/richcooper95/twenty-forty-eight",
-      "image": "static/images/2048.png",
+      "image": "/static/images/2048.png",
       "imageAlt": "Screenshot of my 2048 terminal implementation",
       "gradient": "linear-gradient(135deg, rgba(155, 155, 155, 0.9), rgba(198, 255, 179, 0.9))",
       "columnSpan": 1
@@ -59,8 +59,8 @@
     {
       "title": "Master's Dissertation",
       "description": "Some cool plasma physics (gyrokinetics) I did at university.",
-      "link": "static/resources/MMathPhys_Dissertation_394365.pdf",
-      "image": "static/images/gyrokinetics.png",
+      "link": "/static/resources/MMathPhys_Dissertation_394365.pdf",
+      "image": "/static/images/gyrokinetics.png",
       "imageAlt": "Excerpt from my Master's dissertation",
       "gradient": "linear-gradient(135deg, rgba(236, 179, 255, 0.9), rgba(179, 179, 255, 0.9))",
       "columnSpan": 1
@@ -69,7 +69,7 @@
       "title": "Email",
       "description": "Say hello via email!",
       "link": "mailto:richwjcooper@gmail.com",
-      "image": "static/images/email.png",
+      "image": "/static/images/email.png",
       "imageAlt": "Email logo",
       "gradient": "linear-gradient(135deg, rgba(255, 217, 155, 0.9), rgba(255, 179, 155, 0.9))",
       "columnSpan": 1
