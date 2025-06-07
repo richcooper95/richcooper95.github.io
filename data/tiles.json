@@ -13,7 +13,7 @@
         "title": "Blog",
         "description": "My blog, where I write about AI safety, tech, and other interests.",
         "link": "/blog/",
-        "image": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-size='20'>📝</text></svg>",
+        "image": "/static/images/pencil-icon.svg",
         "imageAlt": "Blog icon",
         "gradient": "linear-gradient(135deg, rgba(155, 255, 198, 0.9), rgba(198, 179, 255, 0.9))",
         "columnSpan": 2,
