@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rich Text</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="blog.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📝</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;1,300;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="background-container">
+        <div class="background-image"></div>
+
+        <main class="content-container blog-content">
+            <div class="blog-header">
+                <h1>Rich Text</h1>
+                <p>Every file in this blog is in RTF - because I wrote it.</p>
+                <a href="../" class="home-link">← Back to Home</a>
+            </div>
+
+            <div id="blog-posts" class="blog-posts-container">
+                <!-- Blog posts will be dynamically inserted here -->
+            </div>
+        </main>
+
+        <footer class="copyright">
+            © <span id="current-year"></span> by Rich Barton-Cooper
+        </footer>
+    </div>
+
+    <script>
+        async function loadBlogPosts() {
+            try {
+                const response = await fetch('posts.json');
+                const posts = await response.json();
+
+                const container = document.getElementById('blog-posts');
+
+                posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                posts.forEach(post => {
+                    const article = document.createElement('article');
+                    article.className = 'blog-post-card';
+                    article.style.backgroundImage = `linear-gradient(135deg, rgba(155, 255, 198, 0.9), rgba(198, 179, 255, 0.9))`;
+
+                    article.innerHTML = `
+                        <h2><a href="posts/generated/${post.slug}.html">${post.title}</a></h2>
+                        <div class="post-meta">
+                            <time datetime="${post.date}">${new Date(post.date).toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric'
+                            })}</time>
+                            ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                        <p class="post-description">${post.description}</p>
+                        <a href="posts/generated/${post.slug}.html" class="read-more">Read more →</a>
+                    `;
+
+                    container.appendChild(article);
+                });
+
+                document.getElementById('current-year').textContent = new Date().getFullYear();
+            } catch (error) {
+                console.error('Error loading blog posts:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadBlogPosts);
+    </script>
+</body>
+</html>
