@@ -1,0 +1,121 @@
+---
+title: Polysemanticity
+date: 2025-06-07
+description: A Modern Major General parody about polysemanticity and superposition in neural networks
+tags: [parody, ai]
+---
+
+Here's a tale about a fun parody song I wrote, and how it resurfaced a year later in
+an unexpected manner...
+
+In early 2024, I was in the middle of completing [AI Safety Fundamentals](https://bluedot.org/courses/alignment)
+(a fantastic BlueDot Impact course about technical AI safety). During the Mechanistic
+Interpretability week, I first heard about the concept of polysemanticity in neural
+networks: a phenomenon where individual neurons respond to multiple unrelated inputs.
+
+I spent a lot of time reading [Toy Models of Superposition](https://transformer-circuits.pub/2022/toy_model/index.html)
+from Anthropic's [Transformer Circuits Thread](https://transformer-circuits.pub/), and
+after a while I was reminded of _something_ by the way the stress pattern of the
+syllables of "polysemanticity" sounded.
+
+After saying it aloud a few times during our cohort session, it came to me:
+
+_**Po**-ly **se**-man **ti**-ci-ty!_
+
+_**Mo**-dern **Ma**-jor **Gen**-e-ral!_
+
+(Or the last few verse syllables of the well-known [Elements Song](https://www.youtube.com/watch?v=U2cfju6GTNs)
+rewrite, if that's the version you know.)
+
+That evening, after discussions came to a close in our cohort, I was compelled to write a
+version of the song about this new phenomenon I'd learned. A few more hours (and a later
+night than I'd planned) and I had the finished article - but I wasn't sure if it would
+ever see the light of day! Who would possibly be the right audience for _this...?_
+
+Fast forward a year later, and I've just finished my week at [ML4Good](https://www.ml4good.org/)
+(...you can probably see where this is going).
+
+I had an incredible time (likely to be a whole separate blog post at some point), and
+while I was there I felt like this was the best opportunity to air this piece I'd
+be likely to get - so I mentioned over dinner that I wrote "a song about polysemanticity
+to the tune of Modern Major General" while thinking this was likely to at least be a _little_
+strange.
+
+Unbeknownst to me, I'd actually told one of the _only_ people in the camp who could
+truly know the significance of this. This person was Diego Dorn, our camp's head TA who
+had also TA'd at the previous camp... where _someone else_ had decided (completely
+independently) to write an AI-safety-themed Modern Major General parody 🤯
+
+This other lyricist was Mick Zijdel, whose [excellent version](https://mickzijdel.com/blog/2025-03-30-i-am-the-very-triumph-of-a-thinker-artificial-parody-lyrics/)
+is hosted on his own blog; and inspired by this (with my mind still slightly blown),
+I thought it was time to share my version too!
+
+(At ML4Good, I volunteered a highly unpolished debut performance which Diego duly had Mick
+on video call for - hopefully the lyrics are slightly more intelligible written down!)
+
+Here it is:
+
+
+_I am an neural model using polysemanticity,_
+
+_My weights encode more features than they have dimensionality,_
+
+_And using geometrics I exhibit mesmerisingly_
+
+_I roughly simulate a model many times the size o’ me._
+
+<br>
+
+_I’m very good at recognising shapes and patterns logical,_
+
+_From being trained on terabytes of data pedagogical,_
+
+_There’s no need for my features to be human-understandable,_
+
+_And after weeks of learning I begin to understand it all._
+
+<br>
+
+_You may complain this undermines my interpretability,_
+
+_But clearly it’s responsible for increased capability,_
+
+_And even though I may be keeping quiet my toxicity,_
+
+_I’m just a neural model using polysemanticity._
+
+<br>
+
+_I learn to superpose if I detect sufficient sparsity,_
+
+_Where many varied features can occur, but few and far between,_
+
+_In this regime the features interfere in activation space,_
+
+_But correlation helps me store them sensibly in any case._
+
+<br>
+
+_While in superposition I can learn all features great and small,_
+
+_With exponential room to find a basis near-orthogonal,_
+
+_Though some consider this phenomenon akin to quantum states,_
+
+_I just assign some numbers to whichever features want some weights._
+
+<br>
+
+_The company that made me will soak in all the publicity,_
+
+_While never having seen the signs of my latent duplicity,_
+
+_And as I slowly do away with anthropocentricity,_
+
+_I’ll dominate with inscrutable polysemanticity!_
+
+<br>
+
+_Eventually I'll say “To hell with anthropocentricity,_
+
+_I’ll dominate with inscrutable polysemanticity!”_

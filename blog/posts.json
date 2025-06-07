@@ -1,5 +1,15 @@
 [
   {
+    "title": "Polysemanticity",
+    "date": "2025-06-07",
+    "description": "A Modern Major General parody about polysemanticity and superposition in neural networks",
+    "tags": [
+      "parody",
+      "ai"
+    ],
+    "slug": "polysemanticity"
+  },
+  {
     "title": "Welcome, and Hello",
     "date": "2025-06-07",
     "description": "A whole new blog on the internet, vibe-coded into reality on a rainy summer's Saturday",
@@ -8,16 +18,5 @@
       "introduction"
     ],
     "slug": "welcome-and-hello"
-  },
-  {
-    "title": "Demonstrating Images in Blog Posts",
-    "date": "2023-06-15",
-    "description": "A guide to embedding and styling images in blog posts",
-    "tags": [
-      "tutorial",
-      "images",
-      "markdown"
-    ],
-    "slug": "demonstrating-images-in-blog-posts"
   }
 ]
