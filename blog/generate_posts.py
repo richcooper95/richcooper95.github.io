@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
 
-import os
 import json
 import re
 import yaml
-import shutil
 from datetime import datetime, date
 from pathlib import Path
 
@@ -47,57 +45,10 @@ def format_display_date(date_value):
     except (ValueError, TypeError):
         return str(date_value)
 
-def process_markdown_images(content, slug):
-    """
-    Process markdown image references and copy images to the appropriate directory.
-    Returns the updated content with corrected image paths.
-    """
-    # Create post-specific image directory
-    post_image_dir = Path('images') / slug
-    post_image_dir.mkdir(exist_ok=True, parents=True)
-
-    # Find all markdown image references: ![alt text](image_path)
-    image_pattern = r'!\[(.*?)\]\((.+?)\)'
-
-    def replace_image_path(match):
-        alt_text = match.group(1)
-        image_path = match.group(2)
-
-        # If it's a URL (starts with http:// or https://), leave it as is
-        if image_path.startswith(('http://', 'https://')):
-            return f'![{alt_text}]({image_path})'
-
-        # Otherwise, it's a local file
-        image_file = Path(image_path)
-
-        # Check if the image exists relative to the markdown file
-        if not image_file.is_absolute():
-            # Assume images are in a folder relative to the markdown file
-            image_file = Path('posts') / image_file
-
-        if image_file.exists():
-            # Copy the image to the post's image directory
-            new_image_path = post_image_dir / image_file.name
-            shutil.copy2(image_file, new_image_path)
-
-            # Return the new markdown with updated path
-            # The path is relative to where the HTML will be served from
-            return f'![{alt_text}](../../../blog/images/{slug}/{image_file.name})'
-
-        # If image doesn't exist, return the original markdown
-        return match.group(0)
-
-    # Replace all image references
-    updated_content = re.sub(image_pattern, replace_image_path, content)
-    return updated_content
-
 def generate_post_html(metadata, content, slug):
     post_date = metadata.get('date', datetime.now().strftime('%Y-%m-%d'))
     formatted_date = format_date(post_date)
     display_date = format_display_date(post_date)
-
-    # Process images in the content
-    processed_content = process_markdown_images(content, slug)
 
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -140,7 +91,7 @@ def generate_post_html(metadata, content, slug):
 
     <script>
         // Render Markdown content
-        const content = `{processed_content.replace('`', '\\`')}`;
+        const content = `{content.replace('`', '\\`')}`;
         document.getElementById('content').innerHTML = marked.parse(content);
 
         // Update copyright year

@@ -22,15 +22,28 @@ And you can include [links](https://example.com) and *formatting* too.
 
 ## Adding Images
 
-You can include images in your blog posts in several ways:
+To add images to your blog posts:
 
-1. From a local file (place image in the same directory as your .md file):
-   ![Local Image](image.jpg)
+1. Place your images in the `static/images` directory
+2. Reference them in your Markdown using HTML:
 
-2. From a subdirectory:
-   ![Subdirectory Image](images/photo.png)
+```html
+<!-- Center-aligned image (default) -->
+<img src="../../../static/images/your-image.jpg" alt="Image description" class="align-center">
 
-3. From a URL:
-   ![Remote Image](https://example.com/image.jpg)
+<!-- Left-aligned image -->
+<img src="../../../static/images/your-image.jpg" alt="Image description" class="align-left">
 
-Images will be automatically copied to the blog's image directory when you run the generation script.
+<!-- Right-aligned image -->
+<img src="../../../static/images/your-image.jpg" alt="Image description" class="align-right">
+
+<!-- Image with caption -->
+<img src="../../../static/images/your-image.jpg" alt="Image description">
+<p class="image-caption">This is a caption for the image</p>
+```
+
+3. You can also use remote images by using their URL:
+
+```html
+<img src="https://example.com/image.jpg" alt="Remote image">
+```

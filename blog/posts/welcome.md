@@ -28,7 +28,7 @@ the complex ways it will attempt to deceive and scheme against users (expect mor
 this topic in future posts).
 
 But with my software engineering hat on, it's still kind of wild to see how much AI tools
-can just take care of with minimal oversight.
+can just take care of with such minimal oversight.
 
 The future is here, and much more future is [just around the corner](https://ai-2027.com/).
 
