@@ -18,14 +18,17 @@ it magically did for me.
 (Alignment? Solved, in a sense.)
 
 It even wrote a Markdown-to-HTML script for me, so all I have to do as a dumb human is
-write my thoughts and feelings in simple `###`s and `---`s.
+write my thoughts and feelings in simple `###`s and `---`s.[^1]
+
+[^1]: Sure, [frameworks](https://jekyllrb.com/docs/) [already](https://wordpress.com/create-blog/) [exist](https://docs.astro.build/en/getting-started/)
+    for this, but I'm interested to see how far I can get via this route.
 
 Lovely (in a scary kind of way).
 
 This level of capability shouldn't come as much of a surprise given Claude 3.7 Sonnet's
 [benchmark performance](https://www.anthropic.com/news/claude-3-7-sonnet), not to mention
-the complex ways it will attempt to deceive and scheme against users (expect more on
-this topic in future posts).
+more alarming behaviours like attempting to deceive and scheme against users (expect more
+on this topic in future posts).
 
 But with my software engineering hat on, it's still kind of wild to see how much AI tools
 can just take care of with such minimal oversight.

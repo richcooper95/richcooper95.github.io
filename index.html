@@ -66,11 +66,32 @@
           // Clear existing tiles
           tilesContainer.innerHTML = '';
 
+          // Fetch blog posts for the blog tile if needed
+          let blogPosts = [];
+          for (const tile of data.tiles) {
+            if (tile.type === 'blog') {
+              try {
+                const blogResponse = await fetch('blog/posts.json?' + new Date().getTime());
+                blogPosts = await blogResponse.json();
+                console.log('Loaded blog posts:', blogPosts);
+              } catch (blogError) {
+                console.error('Error loading blog posts:', blogError);
+                blogPosts = [];
+              }
+              break;
+            }
+          }
+
           data.tiles.forEach((tile, index) => {
             console.log(`Rendering tile ${index + 1}:`, tile.title);
             const tileElement = document.createElement('a');
             tileElement.href = tile.link;
-            tileElement.target = "_blank";
+
+            // Don't open blog links in a new tab
+            if (tile.type !== 'blog') {
+              tileElement.target = "_blank";
+            }
+
             tileElement.className = "tile-card";
             tileElement.style.backgroundImage = tile.gradient;
 
@@ -80,10 +101,72 @@
               tileElement.style.gridRow = `span 1`; // Explicitly set row span to 1
             }
 
-            tileElement.innerHTML = `
-              <img src="${tile.image}" alt="${tile.imageAlt}" class="tile-image">
-              <p class="tile-description">${tile.description}</p>
-            `;
+            // Special handling for blog tile
+            if (tile.type === 'blog') {
+              // Create content for blog tile with two columns
+              let blogContent = '';
+
+              // Left column with title and description
+              blogContent += `
+                <div class="blog-tile-column left-column">
+                  <img src="${tile.image}" alt="${tile.imageAlt}" class="blog-icon">
+                  <h3 class="blog-title">${tile.blogTitle || 'Rich Text'}</h3>
+                  <p class="blog-subtitle">${tile.description}</p>
+                </div>
+              `;
+
+              // Right column with recent posts
+              if (blogPosts.length > 0) {
+                blogContent += `<div class="blog-tile-column right-column">`;
+
+                // Show up to 2 most recent posts
+                const recentPosts = blogPosts.slice(0, 2);
+                recentPosts.forEach(post => {
+                  // Truncate description if too long
+                  const shortDescription = post.description.length > 60
+                    ? post.description.substring(0, 60) + '...'
+                    : post.description;
+
+                  blogContent += `
+                    <div class="recent-post" data-post-url="blog/posts/generated/${post.slug}.html">
+                      <h4>${post.title}</h4>
+                      <p class="post-description">${shortDescription}</p>
+                    </div>
+                  `;
+                });
+
+                blogContent += `</div>`;
+              } else {
+                // If no posts, add empty right column
+                blogContent += `<div class="blog-tile-column right-column">
+                  <p class="no-posts">No posts yet</p>
+                </div>`;
+              }
+
+              tileElement.innerHTML = blogContent;
+              tileElement.classList.add('blog-tile');
+
+              // Add click event listeners to post previews
+              setTimeout(() => {
+                const postElements = tileElement.querySelectorAll('.recent-post');
+                postElements.forEach(postElement => {
+                  postElement.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const postUrl = postElement.getAttribute('data-post-url');
+                    if (postUrl) {
+                      window.location.href = postUrl;
+                    }
+                  });
+                });
+              }, 0);
+            } else {
+              // Standard tile
+              tileElement.innerHTML = `
+                <img src="${tile.image}" alt="${tile.imageAlt}" class="tile-image">
+                <p class="tile-description">${tile.description}</p>
+              `;
+            }
 
             tilesContainer.appendChild(tileElement);
           });

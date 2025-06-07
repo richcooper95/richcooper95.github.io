@@ -12,6 +12,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;1,300;1,700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-footnote/dist/index.umd.min.js"></script>
+    <style>
+
+        /* Footnote styles */
+        .footnotes {
+            margin-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footnote {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            text-indent: -1.5rem;
+        }
+
+        .footnote-backref {
+            margin-left: 0.5rem;
+            text-decoration: none;
+        }
+    
+    </style>
 </head>
 <body>
     <div class="background-container">
@@ -52,17 +75,20 @@ it magically did for me.
 (Alignment? Solved, in a sense.)
 
 It even wrote a Markdown-to-HTML script for me, so all I have to do as a dumb human is
-write my thoughts and feelings in simple \`###\`s and \`---\`s.
+write my thoughts and feelings in simple \`###\`s and \`---\`s.[^1]
+
+[^1]: Sure, [frameworks](https://jekyllrb.com/docs/) [already](https://wordpress.com/create-blog/) [exist](https://docs.astro.build/en/getting-started/)
+    for this, but I'm interested to see how far I can get via this route.
 
 Lovely (in a scary kind of way).
 
 This level of capability shouldn't come as much of a surprise given Claude 3.7 Sonnet's
 [benchmark performance](https://www.anthropic.com/news/claude-3-7-sonnet), not to mention
-the complex ways it will attempt to deceive and scheme against users (expect more on
-this topic in future posts).
+more alarming behaviours like attempting to deceive and scheme against users (expect more
+on this topic in future posts).
 
 But with my software engineering hat on, it's still kind of wild to see how much AI tools
-can just take care of with minimal oversight.
+can just take care of with such minimal oversight.
 
 The future is here, and much more future is [just around the corner](https://ai-2027.com/).
 
@@ -80,7 +106,9 @@ Bowness-on-Solway, the background of this site. This was the start of a coast-to
 walk along Hadrian's Wall back in July 2023, during which we were able to see Sycamore Gap
 in all its glory (before it was too late).
 </p>`;
-        document.getElementById('content').innerHTML = marked.parse(content);
+        document.getElementById('content').innerHTML = new marked.Marked()
+            .use(markedFootnote())
+            .parse(content);
 
         // Update copyright year
         document.getElementById('current-year').textContent = new Date().getFullYear();

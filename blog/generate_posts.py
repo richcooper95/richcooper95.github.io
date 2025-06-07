@@ -50,6 +50,28 @@ def generate_post_html(metadata, content, slug):
     formatted_date = format_date(post_date)
     display_date = format_display_date(post_date)
 
+    # Define CSS separately to avoid f-string issues
+    footnote_css = """
+        /* Footnote styles */
+        .footnotes {
+            margin-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footnote {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            text-indent: -1.5rem;
+        }
+
+        .footnote-backref {
+            margin-left: 0.5rem;
+            text-decoration: none;
+        }
+    """
+
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,6 +86,10 @@ def generate_post_html(metadata, content, slug):
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;1,300;1,700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-footnote/dist/index.umd.min.js"></script>
+    <style>
+{footnote_css}
+    </style>
 </head>
 <body>
     <div class="background-container">
@@ -92,7 +118,9 @@ def generate_post_html(metadata, content, slug):
     <script>
         // Render Markdown content
         const content = `{content.replace('`', '\\`')}`;
-        document.getElementById('content').innerHTML = marked.parse(content);
+        document.getElementById('content').innerHTML = new marked.Marked()
+            .use(markedFootnote())
+            .parse(content);
 
         // Update copyright year
         document.getElementById('current-year').textContent = new Date().getFullYear();

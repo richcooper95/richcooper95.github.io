@@ -2,7 +2,7 @@
 title: Polysemanticity
 date: 2025-06-07
 description: A Modern Major General parody about polysemanticity and superposition in neural networks
-tags: [parody, ai]
+tags: [parody, ai-safety]
 ---
 
 Here's a tale about a fun parody song I wrote, and how it resurfaced a year later in
@@ -46,12 +46,12 @@ truly know the significance of this. This person was Diego Dorn, our camp's head
 had also TA'd at the previous camp... where _someone else_ had decided (completely
 independently) to write an AI-safety-themed Modern Major General parody 🤯
 
-This other lyricist was Mick Zijdel, whose [excellent version](https://mickzijdel.com/blog/2025-03-30-i-am-the-very-triumph-of-a-thinker-artificial-parody-lyrics/)
-is hosted on his own blog; and inspired by this (with my mind still slightly blown),
-I thought it was time to share my version too!
+This mysterious other lyricist was Mick Zijdel, whose [excellent version](https://mickzijdel.com/blog/2025-03-30-i-am-the-very-triumph-of-a-thinker-artificial-parody-lyrics/)
+is hosted on his own blog; and inspired by this, I thought it was time to share my version
+too!
 
 (At ML4Good, I volunteered a highly unpolished debut performance which Diego duly had Mick
-on video call for - hopefully the lyrics are slightly more intelligible written down!)
+on video call for - hopefully the lyrics are slightly more intelligible written down.)
 
 Here it is:
 
@@ -62,15 +62,15 @@ _My weights encode more features than they have dimensionality,_
 
 _And using geometrics I exhibit mesmerisingly_
 
-_I roughly simulate a model many times the size o’ me._
+_I roughly simulate a model many times the size o' me._
 
 <br>
 
-_I’m very good at recognising shapes and patterns logical,_
+_I'm very good at recognising shapes and patterns logical,_
 
 _From being trained on terabytes of data pedagogical,_
 
-_There’s no need for my features to be human-understandable,_
+_There's no need for my features to be human-understandable,_
 
 _And after weeks of learning I begin to understand it all._
 
@@ -78,11 +78,11 @@ _And after weeks of learning I begin to understand it all._
 
 _You may complain this undermines my interpretability,_
 
-_But clearly it’s responsible for increased capability,_
+_But clearly it's responsible for increased capability,_
 
 _And even though I may be keeping quiet my toxicity,_
 
-_I’m just a neural model using polysemanticity._
+_I'm just a neural model using polysemanticity._
 
 <br>
 
@@ -112,10 +112,15 @@ _While never having seen the signs of my latent duplicity,_
 
 _And as I slowly do away with anthropocentricity,_
 
-_I’ll dominate with inscrutable polysemanticity!_
+_I'll dominate with inscrutable polysemanticity!_
 
 <br>
 
-_Eventually I'll say “To hell with anthropocentricity,_
+_Eventually I'll say "To hell with anthropocentricity,_
 
-_I’ll dominate with inscrutable polysemanticity!”_
+_I'll dominate with inscrutable polysemanticity!"_
+
+<img src="../../../static/images/modern-modern-major-generals.png" alt="A post criticising how many versions of Modern Major General there are, to the tune of Modern Major General" class="align-center" style="width: 60%; max-width: 600px;">
+<p class="image-caption">
+A related post I stumbled across on <a href="https://www.reddit.com/r/CuratedTumblr/comments/1d92o5n/modern_modern_major_generals/">this Reddit thread</a>. May require re-reading a few times!
+</p>

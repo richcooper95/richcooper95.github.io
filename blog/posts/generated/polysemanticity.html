@@ -12,6 +12,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;1,300;1,700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-footnote/dist/index.umd.min.js"></script>
+    <style>
+
+        /* Footnote styles */
+        .footnotes {
+            margin-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footnote {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            text-indent: -1.5rem;
+        }
+
+        .footnote-backref {
+            margin-left: 0.5rem;
+            text-decoration: none;
+        }
+    
+    </style>
 </head>
 <body>
     <div class="background-container">
@@ -26,7 +49,7 @@
                 <h1>Polysemanticity</h1>
                 <div class="post-meta">
                     <time datetime="2025-06-07">June 07, 2025</time>
-                    <span class="tag">parody</span> <span class="tag">ai</span>
+                    <span class="tag">parody</span> <span class="tag">ai-safety</span>
                 </div>
                 <div class="post-content" id="content"></div>
             </article>
@@ -80,7 +103,7 @@ truly know the significance of this. This person was Diego Dorn, our camp's head
 had also TA'd at the previous camp... where _someone else_ had decided (completely
 independently) to write an AI-safety-themed Modern Major General parody 🤯
 
-This other lyricist was Mick Zijdel, whose [excellent version](https://mickzijdel.com/blog/2025-03-30-i-am-the-very-triumph-of-a-thinker-artificial-parody-lyrics/)
+This mysterious other lyricist was Mick Zijdel, whose [excellent version](https://mickzijdel.com/blog/2025-03-30-i-am-the-very-triumph-of-a-thinker-artificial-parody-lyrics/)
 is hosted on his own blog; and inspired by this (with my mind still slightly blown),
 I thought it was time to share my version too!
 
@@ -96,15 +119,15 @@ _My weights encode more features than they have dimensionality,_
 
 _And using geometrics I exhibit mesmerisingly_
 
-_I roughly simulate a model many times the size o’ me._
+_I roughly simulate a model many times the size o' me._
 
 <br>
 
-_I’m very good at recognising shapes and patterns logical,_
+_I'm very good at recognising shapes and patterns logical,_
 
 _From being trained on terabytes of data pedagogical,_
 
-_There’s no need for my features to be human-understandable,_
+_There's no need for my features to be human-understandable,_
 
 _And after weeks of learning I begin to understand it all._
 
@@ -112,11 +135,11 @@ _And after weeks of learning I begin to understand it all._
 
 _You may complain this undermines my interpretability,_
 
-_But clearly it’s responsible for increased capability,_
+_But clearly it's responsible for increased capability,_
 
 _And even though I may be keeping quiet my toxicity,_
 
-_I’m just a neural model using polysemanticity._
+_I'm just a neural model using polysemanticity._
 
 <br>
 
@@ -146,14 +169,21 @@ _While never having seen the signs of my latent duplicity,_
 
 _And as I slowly do away with anthropocentricity,_
 
-_I’ll dominate with inscrutable polysemanticity!_
+_I'll dominate with inscrutable polysemanticity!_
 
 <br>
 
-_Eventually I'll say “To hell with anthropocentricity,_
+_Eventually I'll say "To hell with anthropocentricity,_
 
-_I’ll dominate with inscrutable polysemanticity!”_`;
-        document.getElementById('content').innerHTML = marked.parse(content);
+_I'll dominate with inscrutable polysemanticity!"_
+
+<img src="../../../static/images/modern-modern-major-generals.png" alt="A post criticising how many versions of Modern Major General there are, to the tune of Modern Major General" class="align-center" style="width: 60%; max-width: 600px;">
+<p class="image-caption">
+A related post I stumbled across on <a href="https://www.reddit.com/r/CuratedTumblr/comments/1d92o5n/modern_modern_major_generals/">this Reddit thread</a>. May require re-reading a few times!
+</p>`;
+        document.getElementById('content').innerHTML = new marked.Marked()
+            .use(markedFootnote())
+            .parse(content);
 
         // Update copyright year
         document.getElementById('current-year').textContent = new Date().getFullYear();

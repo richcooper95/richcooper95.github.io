@@ -10,6 +10,17 @@
   },
   "tiles": [
     {
+        "title": "Blog",
+        "description": "My blog, where I write about AI safety, tech, and other interests.",
+        "link": "blog/",
+        "image": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-size='20'>📝</text></svg>",
+        "imageAlt": "Blog icon",
+        "gradient": "linear-gradient(135deg, rgba(155, 255, 198, 0.9), rgba(198, 179, 255, 0.9))",
+        "columnSpan": 2,
+        "type": "blog",
+        "blogTitle": "Rich Text"
+    },
+    {
       "title": "Github",
       "description": "Where my code lives.",
       "link": "https://github.com/richcooper95",
@@ -28,17 +39,8 @@
       "columnSpan": 1
     },
     {
-        "title": "Blog",
-        "description": "My blog, where I write about AI safety, tech, and other interests.",
-        "link": "blog/",
-        "image": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-size='20'>📝</text></svg>",
-        "imageAlt": "Blog icon",
-        "gradient": "linear-gradient(135deg, rgba(155, 255, 198, 0.9), rgba(198, 179, 255, 0.9))",
-        "columnSpan": 2
-    },
-    {
       "title": "Nomination Whist",
-      "description": "I built this to record games of Nomination Whist.",
+      "description": "A site I built to score and record games of Nomination Whist.",
       "link": "https://whist.bartoncooper.com/",
       "image": "static/images/card-drawing-N.png",
       "imageAlt": "What's Trumps logo",
@@ -47,7 +49,7 @@
     },
     {
       "title": "2048",
-      "description": "A terminal-based implementation of the 2048 game.",
+      "description": "My terminal-based implementation of the 2048 game.",
       "link": "https://github.com/richcooper95/twenty-forty-eight",
       "image": "static/images/2048.png",
       "imageAlt": "Screenshot of my 2048 terminal implementation",
