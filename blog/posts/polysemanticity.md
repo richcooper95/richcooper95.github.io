@@ -56,7 +56,7 @@ on video call for - hopefully the lyrics are slightly more intelligible written 
 Here it is:
 
 
-_I am an neural model using polysemanticity,_
+_I am a neural model using polysemanticity,_
 
 _My weights encode more features than they have dimensionality,_
 
