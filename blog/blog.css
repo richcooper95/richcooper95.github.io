@@ -166,3 +166,41 @@
     color: white;
     border-radius: 0.5rem;
 }
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .blog-content {
+        padding-top: 2rem;
+    }
+
+    .blog-header h1 {
+        font-size: 2rem;
+    }
+
+    .blog-post-card {
+        padding: 1.5rem;
+    }
+
+    .blog-post-card h2 {
+        font-size: 1.5rem;
+    }
+
+    .blog-post {
+        padding: 1.5rem;
+    }
+
+    .blog-post img.align-left,
+    .blog-post img.align-right {
+        float: none;
+        margin: 1.5rem 0;
+        max-width: 100%;
+    }
+
+    .image-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .image-gallery img {
+        height: 150px;
+    }
+}

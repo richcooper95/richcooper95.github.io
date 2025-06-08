@@ -103,12 +103,6 @@
             tileElement.className = "tile-card";
             tileElement.style.backgroundImage = tile.gradient;
 
-            // Apply column span if specified
-            if (tile.columnSpan && tile.columnSpan > 1) {
-              tileElement.style.gridColumn = `span ${tile.columnSpan}`;
-              tileElement.style.gridRow = `span 1`; // Explicitly set row span to 1
-            }
-
             // Special handling for blog tile
             if (tile.type === 'blog') {
               // Create content for blog tile with two columns
