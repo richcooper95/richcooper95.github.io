@@ -39,6 +39,7 @@ body {
     flex-direction: column;
     gap: 2rem;
     width: 100%;
+    align-items: stretch;
 }
 
 .header-card {
@@ -51,6 +52,7 @@ body {
     background: rgba(255, 255, 255, 0.9);
     text-align: center;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
 .header-content {
@@ -77,10 +79,14 @@ body {
 #tiles-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-auto-flow: row;
-    grid-auto-rows: 200px;
+    grid-auto-rows: minmax(200px, auto);
     gap: 2rem;
     width: 100%;
+}
+
+/* Apply span 2 to blog tile on desktop */
+.tile-card.blog-tile {
+    grid-column: span 2;
 }
 
 .tile-card {
@@ -94,7 +100,8 @@ body {
     align-items: center;
     justify-content: center;
     padding: 2rem;
-    height: 200px;
+    height: 100%;
+    min-height: 200px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
     overflow: hidden;
@@ -108,7 +115,8 @@ body {
     justify-content: space-between !important;
     align-items: stretch !important;
     padding: 1.5rem !important;
-    height: 200px !important;
+    height: 100% !important;
+    min-height: 200px !important;
 }
 
 .blog-tile-column {
@@ -270,21 +278,74 @@ body {
     color: rgba(0, 0, 0, 0.7);
 }
 
-/* Responsive design */
+/* Medium screens - maintain 2 columns but adjust blog tile */
+@media (max-width: 1024px) and (min-width: 769px) {
+    /* Only override the blog tile span, keep 2 columns for other tiles */
+    .tile-card.blog-tile {
+        grid-column: span 2;
+    }
+
+    /* Keep blog tile in row format on medium screens */
+    .blog-tile {
+        flex-direction: row !important;
+        min-height: 220px !important;
+    }
+
+    .left-column {
+        flex: 1;
+        padding-right: 1rem;
+    }
+
+    .right-column {
+        flex: 2;
+    }
+
+    /* Ensure header card has same width as blog tile */
+    .header-card {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+/* Responsive design for mobile - single column layout */
 @media (max-width: 768px) {
     .content-container {
         padding: 1rem;
+        max-width: 100%;
     }
 
     #tiles-container {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
+        gap: 1.5rem;
     }
 
+    /* Override span for all tiles on smaller screens */
+    .tile-card.blog-tile {
+        grid-column: span 1;
+    }
+
+    .tile-card {
+        height: auto;
+        min-height: 200px;
+        padding: 1.5rem;
+        width: 100%;
+        margin: 0 auto;
+        max-width: 500px; /* Limit maximum width on mobile */
+    }
+
+    /* Header adjustments */
     .header-card {
         flex-direction: column;
         text-align: center;
-        padding: 2rem;
+        padding: 2rem 1rem;
+        width: 100%;
+        max-width: 500px; /* Match the max-width of tiles */
+        margin: 0 auto;
+    }
+
+    .grid-container {
+        align-items: center; /* Center all items in the grid container */
     }
 
     .header-content {
@@ -293,20 +354,21 @@ body {
     }
 
     .header-image {
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        height: 180px;
         margin: 0 auto;
     }
 
     .background-container {
-        padding: 1rem;
+        padding: 0.75rem;
     }
 
     /* Blog tile responsive adjustments */
     .blog-tile {
         flex-direction: column !important;
         height: auto !important;
-        min-height: 240px !important;
+        min-height: 300px !important;
+        padding: 1.5rem 1rem !important;
     }
 
     .left-column {
@@ -320,6 +382,36 @@ body {
 
     .right-column {
         padding-right: 0;
+        padding-left: 0;
+        max-height: 180px;
+        overflow-y: auto;
+    }
+
+    .recent-post {
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .recent-post h4 {
+        font-size: 0.9rem;
+    }
+
+    .recent-post .post-description {
+        font-size: 0.7rem;
+    }
+
+    /* Adjust copyright position */
+    .copyright {
+        position: relative;
+        writing-mode: horizontal-tb;
+        text-align: center;
+        padding: 1rem 0;
+        width: 100%;
+    }
+
+    /* Adjust blog post padding */
+    .blog-post {
+        padding: 1.5rem;
     }
 }
 
