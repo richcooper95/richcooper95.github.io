@@ -154,14 +154,25 @@ _**Disclaimer #2:** I want to acknowledge that there are some really encouraging
 
 Calvin French-Owen's recent post [Reflections on OpenAI](https://calv.info/openai-reflections) (July 2025) specifically mentions that much of OAI's safety work remains unpublished[^9]:
 
-_**Safety is actually more of a thing than you might guess** if you read a lot from [Zvi](https://thezvi.wordpress.com/) or [Lesswrong](https://www.lesswrong.com/). There's a large number of people working to develop safety systems. Given the nature of OpenAI, I saw more focus on practical risks (hate speech, abuse, manipulating political biases, crafting bio-weapons, self-harm, prompt injection) than theoretical ones (intelligence explosion, power-seeking). That's not to say that nobody is working on the latter, there's definitely people focusing on the theoretical risks. But from my viewpoint, it's not the focus. Most of the work which is done isn't published, and OpenAI really should do more to get it out there._
+> _**Safety is actually more of a thing than you might guess** if you read a lot from [Zvi](https://thezvi.wordpress.com/) or [Lesswrong](https://www.lesswrong.com/). There's a large number of people working to develop safety systems. Given the nature of OpenAI, I saw more focus on practical risks (hate speech, abuse, manipulating political biases, crafting bio-weapons, self-harm, prompt injection) than theoretical ones (intelligence explosion, power-seeking). That's not to say that nobody is working on the latter, there's definitely people focusing on the theoretical risks. But from my viewpoint, it's not the focus. Most of the work which is done isn't published, and OpenAI really should do more to get it out there._
 
-A series of comments on [Rauno Arike's shortform post on this subject](https://www.lesswrong.com/posts/3xs67kNbeYgytgETb/rauno-s-shortform?commentId=wSWAsKbKTkGurdRNW) also indicates some pressure not to publish may occur (albeit variably):
+A series of comments on [Rauno Arike's shortform post on this subject](https://www.lesswrong.com/posts/3xs67kNbeYgytgETb/rauno-s-shortform?commentId=wSWAsKbKTkGurdRNW) also indicates some pressure not to publish may occur (albeit variably).
 
-- Leo Gao (OAI) states that "most of the x-risk relevant research done at openai is published" - though later also notes that they might be an atypical researcher better-suited to ignoring pushback on publishing x-risk research: "whenever I say I don't feel like I'm pressured not to do what I'm doing, this does not necessarily mean the average person at openai would agree if they tried to work on my stuff."
-- Steven Adler (ex-OAI) had a different experience: "I did experience [pushback when publishing research that draws attention to x-risk] at OpenAI in a few different projects and contexts unfortunately."
+- Leo Gao (OAI) states that:
 
-Recently, I asked an ex-OAI policy researcher about their experiences. They described a worsening open-publication environment at OAI over the past few years, with approval to publish now requiring jumping through more hoops, and additionally noted that it's "much harder to publish things in policy if you're publishing a problem without also publishing a solution."
+    > most of the x-risk relevant research done at openai is published
+
+- Although later, Leo also notes that they might be an atypical researcher better-suited to ignoring pushback on publishing x-risk research:
+
+    > whenever I say I don't feel like I'm pressured not to do what I'm doing, this does not necessarily mean the average person at openai would agree if they tried to work on my stuff.
+
+- Steven Adler (ex-OAI) had a different experience:
+
+    > I did experience [pushback when publishing research that draws attention to x-risk] at OpenAI in a few different projects and contexts unfortunately.
+
+Recently, I asked an ex-OAI policy researcher about their experiences. They described a worsening open-publication environment at OAI over the past few years, with approval to publish now requiring jumping through more hoops, and additionally noted:
+
+> It's much harder to publish things in policy if you're publishing a problem without also publishing a solution.
 
 Another ex-OAI MoTS said that the Superalignment team mostly had freedom to publish, although this information may now be outdated since the team was [disbanded](https://www.cnbc.com/2024/05/17/openai-superalignment-sutskever-leike.html). They also mentioned that breakthroughs tend to "diffuse around informally" which may help co-located labs[^10] unofficially share their research.
 
@@ -171,7 +182,9 @@ An [April 2025 FT article](https://www.ft.com/content/2ee1ffde-008e-4ea4-861b-24
 
 Former researchers interviewed by the FT indicated that the organisation has become particularly cautious about releasing papers that might benefit competitors or reflect unfavourably on Gemini's capabilities or safety compared to rivals like GPT-4.
 
-One former DeepMind research scientist told the FT: "The company has shifted to one that cares more about product and less about getting research results out for the general public good."
+One former DeepMind research scientist told the FT:
+
+> The company has shifted to one that cares more about product and less about getting research results out for the general public good.
 
 ### Anthropic
 
@@ -214,32 +227,46 @@ _**Disclaimer:** Claude Sonnet 4's Research mode was used to collect these examp
 
 Autonomous vehicle (AV) companies are reluctant to share crash data. [Sandhaus et al.](https://arxiv.org/abs/2504.17792) (April 2025) investigated the reasons why AV crash data was often kept within companies, and concluded that a previously-unknown barrier to data sharing was hoarding AV safety knowledge as a competitive edge:
 
-- *Interviewees believed AV safety knowledge is private knowledge that brings competitive edges to their companies, rather than public knowledge for social good.*
-- *"The data is the new gold, because using the data, you can develop the solutions. And if you're the first to develop the solutions, it means you're the first to go to market."*
-- *"I guess everybody is hoping they have the only dataset that has all the secret information."*
+> Interviewees believed AV safety knowledge is private knowledge that brings competitive edges to their companies, rather than public knowledge for social good.
+
+> "The data is the new gold, because using the data, you can develop the solutions. And if you're the first to develop the solutions, it means you're the first to go to market."
+
+> "I guess everybody is hoping they have the only dataset that has all the secret information."
 
 I believe this constitutes an example of safety hoarding in the AV industry, and I suspect the effects may have been felt earlier in AV development because:
+
 1. Unsafe self-driving cars feels like less of a conceptual leap compared to AGI safety, so demand for safety is already high among the buying public.
 2. The narrow domain invites tighter regulation faster than general-use AI.
 3. AVs are currently prevented from deploying "capabilities work" until they can demonstrate safety, which is not the case for LLMs.
 
 Other aspects of the AV case also appear to be quite analogous to the AI safety sharing problem, and I learned a lot reading this study. In particular:
 
-- **Interviewees were concerned about data-sharing revealing ML architecture details:** *Likewise, participants suggested that how data was collected, stored, and annotated indicated how it would later on be used for ML development. Oftentimes, this revealed information about key parameters and data structure of ML models.*
-- **Sharing data would reduce duplicate work:** *"Here in the Bay Area, it's crazy how many autonomous cars drive around and just collect the same data over and over."*
+- **Interviewees were concerned about data-sharing revealing ML architecture details:**
+
+    > Likewise, participants suggested that how data was collected, stored, and annotated indicated how it would later on be used for ML development. Oftentimes, this revealed information about key parameters and data structure of ML models.
+
+- **Sharing data would reduce duplicate work:**
+
+    > "Here in the Bay Area, it's crazy how many autonomous cars drive around and just collect the same data over and over."
 
 A few of the proposed solutions in this study are also interesting with respect to the AI safety hoarding problem:
 
 - **Incentive programmes to help offset data collection costs** (similar to offsetting possible financial losses from AIS research publication):
-  - *"Implementing incentive programs that can help offset the costs of data collection will likely provide immediate motivation for data-sharing."*
+
+    > Implementing incentive programs that can help offset the costs of data collection will likely provide immediate motivation for data-sharing.
+
 - **Using academic institutions as trusted intermediaries** to ensure standardisation and reasonable openness (similar to governmental bodies in AIS, e.g. UK AISI and US CAISI):
-  - *"In these collaborations, academic researchers can take on the role of intermediaries responsible for ensuring that shared data meets open-access and reproducibility standards."*
+
+    > In these collaborations, academic researchers can take on the role of intermediaries responsible for ensuring that shared data meets open-access and reproducibility standards.
+
 - **Tiered data-sharing strategies** which attempt to tread the line between safety-critical and commercially-sensitive aspects of publication:
-  - *"We propose that researchers in data work and transportation should focus on helping policymakers design tiered data-sharing strategies that distinguish between safety-essential knowledge (which should be shared) and competitive design insights (which may remain proprietary)."*
+
+    > We propose that researchers in data work and transportation should focus on helping policymakers design tiered data-sharing strategies that distinguish between safety-essential knowledge (which should be shared) and competitive design insights (which may remain proprietary).
 
 ### Other Automotive Examples
 
 - **The GM ignition switch case (2000s-2010s).** According to a [memorandum](https://media.npr.org/assets/news/2014/01/gm-documents/033014-committee-memo.pdf) from a hearing in 2014, General Motors knew that inadequate torque performance of the ignition switch could lead to the engine shutting off while driving, taking all systems (e.g. airbags) offline with it. These 2.5M vehicles were ultimately recalled 10 years later, and GM ended up paying [compensation](https://eu.detroitnews.com/story/business/autos/general-motors/2015/08/24/gm-ignition-fund-completes-review/32287697/) for 399 claims (including 124 deaths) directly caused by this issue, costing them $625M. In 2015, they entered into a [Deferred Prosecution Agreement](https://www.justice.gov/usao-sdny/pr/manhattan-us-attorney-announces-criminal-charges-against-general-motors-and-deferred) with the US DoJ and forfeited $900M to the United States. The saga also wiped $3B of shareholder value over 4 weeks.
+
 - **The Ford Pinto case (1970s).** While building their Pinto model, Ford [allegedly](https://en.wikipedia.org/wiki/Ford_Pinto#Fuel_system_fires,_recalls,_and_litigation) compromised on safety testing with aggressive release timelines (25 months vs. the usual ~43). This led to issues being harder to fix during development, including a fuel tank vulnerability surfaced during internal tests which showed fuel leakage (and fire) were likely in any collision above 25mph. Ford proceeded to manufacture without fixing this issue (despite low-cost solutions being identified, e.g. a $1 plastic baffle for the tank). The NHTSA concluded that 27 Pinto occupants had died and 24 sustained burn injuries as a result of fuel tank fires which could easily have been prevented.
 
 <img src="../../../static/images/gm_excerpt.png" alt="GM Ignition Switch Hearing Memorandum Excerpt"  class="align-center" style="width: 80%; max-width: 600px;">
