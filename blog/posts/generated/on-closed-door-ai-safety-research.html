@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On closed-door AI safety research</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/style.css?v=20240528">
+    <link rel="stylesheet" href="/blog/blog.css?v=20240528">
+    <link rel="icon" href="/static/images/pencil-icon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;1,300;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-footnote/dist/index.umd.min.js"></script>
+    <style>
+
+        /* Footnote styles */
+        .footnotes {
+            margin-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footnote {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            text-indent: -1.5rem;
+        }
+
+        .footnote-backref {
+            margin-left: 0.5rem;
+            text-decoration: none;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <div class="background-image"></div>
+
+        <main class="content-container blog-content">
+            <div class="blog-header">
+                <a href="/blog/" class="home-link">← Back to Blog</a>
+            </div>
+
+            <article class="blog-post">
+                <h1>On closed-door AI safety research</h1>
+                <div class="post-meta">
+                    <time datetime="2025-08-18">August 18, 2025</time>
+                    <span class="tag">ai-safety</span> <span class="tag">ai-governance</span>
+                </div>
+                <div class="post-content" id="content"></div>
+            </article>
+        </main>
+
+        <footer class="copyright">
+            © <span id="current-year"></span> by Rich Barton-Cooper
+        </footer>
+    </div>
+
+    <script>
+        // Render Markdown content
+        const content = `*This is cross-posted from LessWrong, with some minor alterations to formatting. Original link [here](https://www.lesswrong.com/posts/2TA7HqBYdhLdJBcZz/on-closed-door-ai-safety-research).*
+
+_**Epistemic status:** Based on multiple accounts, I'm confident that frontier labs keep some safety research internal-only, but I'm *much* less confident on the reasons underlying this. Many benign explanations exist and may well suffice, but I wanted to explore other possible incentives and dynamics which may come into play at various levels. I've tried to gather information from reliable sources to fill my knowledge/experience gaps, but the post remains speculative in places._
+
+*(I'm currently participating in [MATS 8.0](https://www.matsprogram.org/program), but this post is unrelated to [my project](https://www.lesswrong.com/posts/sb8WmKNgwzefa6oaJ/building-black-box-scheming-monitors).)*
+
+## Executive Summary
+
+- Multiple sources[^1] point to frontier labs keeping at least some safety research internal-only.
+- Additionally, I think decision-makers[^2] at frontier labs may be incentivised to keep at least some important safety research proprietary, which I refer to as safety hoarding.
+- Theories for why decision-makers at frontier labs may choose to safety-hoard include: they want to hedge against stronger future AI legislation or an Overton window shift in public safety concerns, which would create a competitive advantage for compliant labs; reputational gains from being "the only safe lab"; safety breakthroughs being too expensive to implement, meaning it's favourable to hide them; and a desire not to draw attention to research which could cause bad PR, e.g. x-risk.
+- Issues resulting from safety hoarding include: risks from labs releasing models which would have been made safer using techniques hoarded by competitors; duplicated research leading to wasted effort; risks of power concentration in a lab with lower safety standards; and harder coordination for external teams, who must guess what labs are doing internally.
+- Other explanations for labs keeping safety research internal might explain much unpublished safety work, including time constraints and publishing effort, dual-use/infohazard concerns, and not wanting to risk data contamination.
+- An [autonomous vehicle (AV) study from April 2025](https://arxiv.org/pdf/2504.17792) indicates that a version of safety hoarding is already happening in the AV industry, where companies are reluctant to share crash data due to competitive dynamics.
+- Limited anecdotal evidence suggests that similar effects might be happening at frontier AI labs, with current and former employees stating that some safety research remains unpublished (including for PR-related concerns), or is forced through lengthy pre-publication embargoes.
+- While there are some cases where safety research should legitimately be withheld from the public domain, e.g. infohazards and dual-use results, I believe better mechanisms are needed to distinguish these cases from unjustified hoarding, provide ways for labs to openly share their work, and ultimately ensure critical safety research can benefit the entire field.
+- The [Frontier Model Forum](https://www.frontiermodelforum.org/updates/announcing-the-frontier-model-forum/) exists[^3] in part to solve exactly this problem, and the success of this initiative (and other similar bodies) may play a vital role in addressing these issues. Their three-item mandate includes: *Facilitate information sharing about frontier AI safety and security among government, academia, civil society and industry.*
+
+## Introduction
+
+There might be [very little time](https://ai-2027.com/) in which we can steer AGI development towards a better outcome for the world, and an increasing number of organisations (including frontier labs themselves) are investing in safety research to try and accomplish this. However, without the right incentive structures and collaborative infrastructure in place, some of these organisations (especially frontier labs) may not publish their research consistently, leading to slower overall progress and increased risk.
+
+In addition to more benign reasons such as time costs and incremental improvements (which likely explain the bulk of unpublished safety research today), I argue there may also exist incentives that could result in safety hoarding, where AI labs choose not to publish important frontier safety research straight away for reasons related to commercial gain (e.g. PR, regulatory concerns, marketing). Independent of the underlying reasons, keeping safety research internal likely results in duplicated effort across safety teams and with external researchers, and introduces the risk of other labs pushing the capability frontier forward without use of these proprietary safety techniques.
+
+This points to a need for organisations like the [Frontier Model Forum](https://www.frontiermodelforum.org/updates/announcing-the-frontier-model-forum/) to exist, with the goal of facilitating research-sharing across both competitors and external research organisations to ensure that teams pursuing vital safety work have access to as much information as possible, hopefully boosting odds of novel research outputs and overall safer models.
+
+_**Note:** The purpose of this post is not to criticise the work or motivations of individual lab safety researchers! It's solely intended as an exploration into some of the dynamics and incentives which might be at play across different levels, and which may lead to their work being withheld from the public domain._
+
+## Hoarding Incentives
+
+*Why might decision-makers at AI labs choose to hoard safety research, and not publish it straight away?*
+
+In no particular order:
+
+- **Reputational advantages**[^4] **from being "the only safe lab."** Especially for corporate customers, safety and reliability are important unique selling points, and publishing any "secret sauces" for safety would diminish these as USPs.
+- **Safer models are often more useful, which is good for business.** There may be reluctance to allow other labs to use safety work that boosts model utility, e.g. interventions which reliably reduce reward hacking.
+- **First-mover advantage if/when regulations tighten.** Labs which can quickly demonstrate compliance with more stringent AI legislation will be well-positioned to use this to their commercial advantage and gain market share, creating an incentive to hedge against future regulations and keep this research proprietary. Publishing all safety research straight away would enable less safety-conscious labs to catch up quicker[^5]. There's not just a race for capabilities, there's a race for safety in a world with tighter regulations, and there's no pressure for companies to demonstrate leadership in that race (yet); so they can afford to keep things secret.
+- **Overton window shift leading to safety being a higher public demand.** As AI risks begin to enter public discourse, the demands of customers may shift more towards demonstrating robust safety, making this a more important aspect of commercial strategy. Why might labs delay for this reason?[^6] Labs may wait until public opinion is more strongly-weighted towards safety before choosing to publish important safety research, because they might receive a larger positive impact on company reputation in a world which values this work more highly.
+- **Dual-use research may give competitors a free capability boost.** Safety research which could be applied to capabilities may be withheld from the public domain to prevent other labs from capitalising on that boost (even if they don't apply it to safety). As mentioned below, it's likely that it is appropriate not to publish such research due to risks of increasing capabilities in general. The motivation for hoarding this research may not always be altruistic, however: labs may still want to use the capability boost themselves.
+- **Safety breakthroughs are too expensive for the lab to implement straight away.** If an alignment or control technique is discovered, and the lab decision-makers reason that it would be too expensive to use in production (i.e. the alignment/control tax is too high), they may prefer it was left out of the public domain in order to avoid drawing criticism for not using the technique themselves.
+- **Drawing attention to an unsolved problem looks bad.** Publishing a safety-related problem without an accompanying (and ideally implemented) solution may be significantly harder to pass publication review processes inside a lab concerned about the associated PR effects, e.g. research relating to x-risk.
+
+_**NB:** I'm leaving obvious dual-use safety research (e.g. successful jailbreaks or safeguard weaknesses) out of scope from this discussion, as I think there are reasonable infohazard concerns regarding publishing this type of research in the public domain. These are discussed separately below._
+
+## Neutral Explanations of Unpublished Work
+
+*What other factors might lead to labs not publishing safety research?*
+
+- **They don't have time to publish everything.** It's a lot of effort to publish high-quality safety research, and labs may set the bar high (e.g. for reputational reasons), making more-frequent publications too costly for research teams to justify. This could be compounded by internal fire-fighting to keep releasing at pace.
+- **Pressure at frontier labs is high, and internal advances are weighted much higher.** It may be the case that labs strongly prioritise application of safety research internally before publishing it to benefit others, meaning long lead times from internal research completion to potential publication.
+- **Engineering-heavy safety work isn't deemed publish-worthy.** Some important safety work might not feel like a major novel contribution to the field (e.g. because it heavily builds on published methodologies), leading researchers to not write anything up about minor process improvements (the sum of which may still result in meaningful progress).
+
+## In Favour of Selective Withholding
+
+*When can we make a case for not publishing certain safety research?*
+
+- **Dual-use concerns.** Some safety research could also advance capabilities of other labs, making it the safe decision not to publish this work more widely (e.g. interpretability techniques that indicate possible model optimisations).
+- **Red-teaming success on released models.** Details of successful red-teaming (e.g. jailbreaking or bypassing safeguards) of sufficiently-capable models already in the public domain should not be released, to avoid unlocking dangerous behaviour for malicious actors.
+- **Data contamination from public safety research in the training corpus.** Alex Turner coined the term ["self-fulfilling misalignment"](https://turntrout.com/self-fulfilling-misalignment) to describe this effect, and describes data filtering as a potential mitigation: If the AI is not trained on data claiming "AIs do X", then the AI is less likely to "believe" that AIs do X. One way to ensure AIs never learn they do X is to not make research about X public at all (though this risk may not outweigh the benefits of publishing[^7]).
+- **Preliminary findings which may incite false alarm.** Research which has a high chance of misinterpretation could arguably be more appropriately kept internal for a short period until further investigation can provide better context and certainty (and prevent a boy-who-cried-wolf scenario for future AI safety alarms).
+
+## Consequences of Safety Hoarding
+
+### Negative
+
+*What problems may arise as a result of AI labs hoarding safety research?*
+
+- **Increased overall risk due to lack of common knowledge.** New frontier models may be released which could have been made safer by utilising research hoarded by another lab.
+- **Increased overall risk due to slowdown.** A world in which safety research happens behind multiple closed doors is likely to make slower progress than a world with open research practices.
+- **Duplicated safety work across labs.** If labs don't openly share safety research, each lab needs their own copy of each distinct research team in order to pursue the research independently, wasting time and resources that could be spent differentially advancing safety research.
+- **Risk of concentrated power landing in a lab with lower safety standards.** Given the AI race dynamics, and the power concentration effects of winning the race, it feels better to have all labs implementing the same shared safety research than risk an unsafe lab being the winner.
+- **Less information available to external research teams.** External researchers need to guess what labs are doing internally in order to pick the most impactful and neglected research direction, which may lead to duplicated work[^8] across research streams, and obvious directions being systematically neglected (because external teams incorrectly conclude labs must be working on them already).
+
+### (Possibly) Positive
+
+*What possible upsides are there to AI labs hoarding safety research?*
+
+- **Non-catastrophic public mistakes can raise awareness and add pressure to improve.** [MechaHitler](https://www.npr.org/2025/07/09/nx-s1-5462609/grok-elon-musk-antisemitic-racist-content) was arguably great for safety; in the short term, it might be better to use examples like this which are obviously bad as a case for stronger regulations and improved lab processes. If xAI had used other labs' safety research to prevent MechaHitler, this wouldn't be possible.
+- **Each lab is forced to invest in their own safety team.** If safety-conscious labs keep some work internal, other less-safe labs may need a replica team in order to comply with regulations or public demand. This could lead to:
+  - **Better implementation of safety research.** Each lab's safety team would likely understand the work more deeply, having built up the domain knowledge themselves, which might lead to higher-quality integration of this work into production.
+  - **Reduced capability-building capacity in each lab.** The time and resources spent on building up required safety research internally means less capacity available for pushing ahead with other work (i.e. they can't free-ride off the work produced by more safety-conscious labs).
+
+## The Current State
+
+_**Disclaimer #1:** This section contains some information I learned through a combination of searching online for details of labs' publication policies, and asking current and former employees directly. As a result of time and contact constraints, this isn't perfectly thorough or balanced, and some information is more adjacent to the topic than directly related._
+
+_**Disclaimer #2:** I want to acknowledge that there are some really encouraging examples of all three big labs (Anthropic, OAI, GDM) prioritising the publication of safety research. Some positive examples which come to mind at time of writing, though there are likely significant omissions from this list: Anthropic's decision to publish work on [Constitutional AI](https://arxiv.org/abs/2212.08073) and work on [alignment faking](https://arxiv.org/abs/2412.14093) with Redwood Research; OpenAI's decision to publish a warning on [chain-of-thought obfuscation risks](https://arxiv.org/abs/2503.11926) and the [large cross-party collaborative warning](https://arxiv.org/abs/2507.11473v1) that followed shortly afterward; GDM's [100-pager on their approach to AGI safety](https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/evaluating-potential-cybersecurity-threats-of-advanced-ai/An_Approach_to_Technical_AGI_Safety_Apr_2025.pdf)._
+
+### OpenAI
+
+Calvin French-Owen's recent post [Reflections on OpenAI](https://calv.info/openai-reflections) (July 2025) specifically mentions that much of OAI's safety work remains unpublished[^9]:
+
+_**Safety is actually more of a thing than you might guess** if you read a lot from [Zvi](https://thezvi.wordpress.com/) or [Lesswrong](https://www.lesswrong.com/). There's a large number of people working to develop safety systems. Given the nature of OpenAI, I saw more focus on practical risks (hate speech, abuse, manipulating political biases, crafting bio-weapons, self-harm, prompt injection) than theoretical ones (intelligence explosion, power-seeking). That's not to say that nobody is working on the latter, there's definitely people focusing on the theoretical risks. But from my viewpoint, it's not the focus. Most of the work which is done isn't published, and OpenAI really should do more to get it out there._
+
+A series of comments on [Rauno Arike's shortform post on this subject](https://www.lesswrong.com/posts/3xs67kNbeYgytgETb/rauno-s-shortform?commentId=wSWAsKbKTkGurdRNW) also indicates some pressure not to publish may occur (albeit variably):
+
+- Leo Gao (OAI) states that "most of the x-risk relevant research done at openai is published" - though later also notes that they might be an atypical researcher better-suited to ignoring pushback on publishing x-risk research: "whenever I say I don't feel like I'm pressured not to do what I'm doing, this does not necessarily mean the average person at openai would agree if they tried to work on my stuff."
+- Steven Adler (ex-OAI) had a different experience: "I did experience [pushback when publishing research that draws attention to x-risk] at OpenAI in a few different projects and contexts unfortunately."
+
+Recently, I asked an ex-OAI policy researcher about their experiences. They described a worsening open-publication environment at OAI over the past few years, with approval to publish now requiring jumping through more hoops, and additionally noted that it's "much harder to publish things in policy if you're publishing a problem without also publishing a solution."
+
+Another ex-OAI MoTS said that the Superalignment team mostly had freedom to publish, although this information may now be outdated since the team was [disbanded](https://www.cnbc.com/2024/05/17/openai-superalignment-sutskever-leike.html). They also mentioned that breakthroughs tend to "diffuse around informally" which may help co-located labs[^10] unofficially share their research.
+
+### Google DeepMind
+
+An [April 2025 FT article](https://www.ft.com/content/2ee1ffde-008e-4ea4-861b-24f15b25cf54) (Melissa Heikkilä and Stephen Morris) details recent changes to GDM's publication restriction policies. According to the report, GDM has implemented new barriers to research publication, including a six-month embargo on "strategic" generative AI papers and a need to convince multiple staff members before publication.
+
+Former researchers interviewed by the FT indicated that the organisation has become particularly cautious about releasing papers that might benefit competitors or reflect unfavourably on Gemini's capabilities or safety compared to rivals like GPT-4.
+
+One former DeepMind research scientist told the FT: "The company has shifted to one that cares more about product and less about getting research results out for the general public good."
+
+### Anthropic
+
+In late 2023, I asked a prominent MoTS for their thoughts on Anthropic's approach to safety research publication. Their answer was that Anthropic had a policy of publishing AI safety research even if it hurt them commercially, but also that not everything is published. My impression was that decisions are made on a case-by-case basis, by weighing up the positive impact of releasing the research against dual-use risks and the commercial downsides of publishing, with more weight on the side of publishing.
+
+I recently asked another lead Anthropic researcher the same question, and they said basically the same thing: researchers are "generally very free to publish things" but noted the opportunity cost of doing so, and that often teams "do some calculus" to balance the usefulness of the research vs. the effort required to publish it.
+
+## A Move Towards Openness
+
+*How can we move towards a world in which safety research is conducted as openly as possible?*
+
+_**Disclaimer:** Below the first point about the FMF, much of this feels vague and I'm looking for people with more expertise to chime in here. I found the FMF after writing the rest of this post, and their work seems very aligned with solving these issues._
+
+- **Support the [Frontier Model Forum](https://www.frontiermodelforum.org/).** The FMF was set up in 2023 and intends to act as a trusted intermediary for frontier labs to share important safety research. They drafted a [March 2025 agreement](https://www.frontiermodelforum.org/updates/fmf-announces-first-of-its-kind-information-sharing-agreement/) signed by Anthropic, OpenAI, Google, and Microsoft, which included commitments to sharing information on "threats, vulnerabilities, and capability advances unique to frontier AI."
+  - It was great to see "model autonomy" on the list of "capabilities of concern", although from publicly-available information the commitment doesn't appear to include sharing mitigation strategies for when these capabilities arise (e.g. AI alignment or control techniques).
+  - It's also unclear exactly what the nature of the commitment is from the information publicly available, e.g. how binding or enforced it is; but it's absolutely a step in the right direction.
+- **Make publication of safety-specific research a legal requirement.** Legislation mandating the publication of safety-relevant research (under certain conditions) may be a strong incentive, although it may be prohibitively hard to enforce, or have negative effects in practice[^11]. I'm also not sure what conditions make sense (perhaps independent third parties can decide what must be published?).
+- **Make publication of safety-specific research less financially risky through incentive schemes.** For example, this may look like tax breaks to offset financial losses from publishing safety research that demonstrably improves performance on third-party safety evals.
+- **Better support for external researchers.** Even if labs aren't going to publish the safety research facilitated by their frontier models internally, they could instead provide less-restricted access to these systems for academic, independent, or safety-org researchers (e.g. full CoT access for research purposes).
+  - This could take place with something like a [university-industry NDA](https://uidp.org/essential-or-overused-navigating-ndas-in-university-industry-partnerships/).
+  - This may additionally help prevent [brain-drain](https://link.springer.com/article/10.1007/s13218-019-00577-2#:~:text=They%20also%20stressed%20that%20substantial,informed%20about%20the%20latest%20developments.) from academia to industry within AI research.
+- **Mechanisms to monitor safety hoarding.** Third-party audits of AI labs could be performed (under NDA) with full access to safety research, allowing labs to be certified as demonstrating a baseline-level commitment to open safety-critical research without mandating full external publication.
+- **Introduce channels for publication of fast, low-certainty safety research.** Meeting the bar for publication takes time and effort, which means stretched safety teams might not always get their work out into the world. Early results can still be useful, and "research note"-style posts (e.g. [here](https://www.lesswrong.com/posts/9tqpPP4FwSnv9AWsi/research-note-our-scheming-precursor-evals-had-limited) and [here](https://www.lesswrong.com/posts/C8HAa2mf5kcBrpjkX/inference-time-compute-more-faithful-a-research-note)) already convey important information to the wider research community. Setting up channels (e.g. [company blogs](https://alignment.anthropic.com/)) which support this style of publishing might help with sharing work without as much associated overhead.
+
+## Grey Areas
+
+*What about research that's hard to classify as safety vs. capabilities?*
+
+**Example: RLHF.** Intended as an alignment technique, RLHF enabled the rise of LLMs-as-chatbots, leading to lab profitability and more capabilities research. [Paul Christiano's 2023 review of RLHF](https://www.lesswrong.com/posts/vwu4kegAEZTBtpT6p/thoughts-on-the-impact-of-rlhf-research) describes the subtleties of assessing the impact of this work.
+
+This kind of example is complex and widely debated, and it feels fundamentally hard to analyse these second-order effects. It's possible that much safety research falls into this category, making publication practices difficult to pin down beyond a case-by-case basis.
+
+## Precedents and Parallels
+
+*Are there any examples from other industries of large corporations withholding safety information from the public domain?*
+
+_**Disclaimer:** Claude Sonnet 4's Research mode was used to collect these examples, which I researched and validated independently before including them in this post._
+
+### Case Study: AV Safety Hoarding
+
+Autonomous vehicle (AV) companies are reluctant to share crash data. [Sandhaus et al.](https://arxiv.org/abs/2504.17792) (April 2025) investigated the reasons why AV crash data was often kept within companies, and concluded that a previously-unknown barrier to data sharing was hoarding AV safety knowledge as a competitive edge:
+
+- *Interviewees believed AV safety knowledge is private knowledge that brings competitive edges to their companies, rather than public knowledge for social good.*
+- *"The data is the new gold, because using the data, you can develop the solutions. And if you're the first to develop the solutions, it means you're the first to go to market."*
+- *"I guess everybody is hoping they have the only dataset that has all the secret information."*
+
+I believe this constitutes an example of safety hoarding in the AV industry, and I suspect the effects may have been felt earlier in AV development because:
+1. Unsafe self-driving cars feels like less of a conceptual leap compared to AGI safety, so demand for safety is already high among the buying public.
+2. The narrow domain invites tighter regulation faster than general-use AI.
+3. AVs are currently prevented from deploying "capabilities work" until they can demonstrate safety, which is not the case for LLMs.
+
+Other aspects of the AV case also appear to be quite analogous to the AI safety sharing problem, and I learned a lot reading this study. In particular:
+
+- **Interviewees were concerned about data-sharing revealing ML architecture details:** *Likewise, participants suggested that how data was collected, stored, and annotated indicated how it would later on be used for ML development. Oftentimes, this revealed information about key parameters and data structure of ML models.*
+- **Sharing data would reduce duplicate work:** *"Here in the Bay Area, it's crazy how many autonomous cars drive around and just collect the same data over and over."*
+
+A few of the proposed solutions in this study are also interesting with respect to the AI safety hoarding problem:
+
+- **Incentive programmes to help offset data collection costs** (similar to offsetting possible financial losses from AIS research publication):
+  - *"Implementing incentive programs that can help offset the costs of data collection will likely provide immediate motivation for data-sharing."*
+- **Using academic institutions as trusted intermediaries** to ensure standardisation and reasonable openness (similar to governmental bodies in AIS, e.g. UK AISI and US CAISI):
+  - *"In these collaborations, academic researchers can take on the role of intermediaries responsible for ensuring that shared data meets open-access and reproducibility standards."*
+- **Tiered data-sharing strategies** which attempt to tread the line between safety-critical and commercially-sensitive aspects of publication:
+  - *"We propose that researchers in data work and transportation should focus on helping policymakers design tiered data-sharing strategies that distinguish between safety-essential knowledge (which should be shared) and competitive design insights (which may remain proprietary)."*
+
+### Other Automotive Examples
+
+- **The GM ignition switch case (2000s-2010s).** According to a [memorandum](https://media.npr.org/assets/news/2014/01/gm-documents/033014-committee-memo.pdf) from a hearing in 2014, General Motors knew that inadequate torque performance of the ignition switch could lead to the engine shutting off while driving, taking all systems (e.g. airbags) offline with it. These 2.5M vehicles were ultimately recalled 10 years later, and GM ended up paying [compensation](https://eu.detroitnews.com/story/business/autos/general-motors/2015/08/24/gm-ignition-fund-completes-review/32287697/) for 399 claims (including 124 deaths) directly caused by this issue, costing them $625M. In 2015, they entered into a [Deferred Prosecution Agreement](https://www.justice.gov/usao-sdny/pr/manhattan-us-attorney-announces-criminal-charges-against-general-motors-and-deferred) with the US DoJ and forfeited $900M to the United States. The saga also wiped $3B of shareholder value over 4 weeks.
+- **The Ford Pinto case (1970s).** While building their Pinto model, Ford [allegedly](https://en.wikipedia.org/wiki/Ford_Pinto#Fuel_system_fires,_recalls,_and_litigation) compromised on safety testing with aggressive release timelines (25 months vs. the usual ~43). This led to issues being harder to fix during development, including a fuel tank vulnerability surfaced during internal tests which showed fuel leakage (and fire) were likely in any collision above 25mph. Ford proceeded to manufacture without fixing this issue (despite low-cost solutions being identified, e.g. a $1 plastic baffle for the tank). The NHTSA concluded that 27 Pinto occupants had died and 24 sustained burn injuries as a result of fuel tank fires which could easily have been prevented.
+
+<img src="../../../static/images/gm_excerpt.png" alt="GM Ignition Switch Hearing Memorandum Excerpt" class="align-center">
+<p class="image-caption">
+Figure 1. Excerpt from the [memorandum](https://media.npr.org/assets/news/2014/01/gm-documents/033014-committee-memo.pdf) for the Committee on Energy and Commerce hearing: Hearing on "The GM Ignition Switch Recall: Why Did It Take So Long?"
+</p>
+
+## Conclusion
+
+In this post, I introduced safety hoarding as a potential risk factor in AI safety research, and laid out some reasons I believe this may arise in real lab research. There is precedent for this effect in both modern (AV) and older (automotive) industries, and some signs this may already be occurring in frontier labs. While there are certain cases in which publishing restrictions might be the right move (dual-use/infohazards), without regulatory insight into the publishing policies of frontier labs and the state of their internal research, those outside of the labs cannot know the full extent of internal safety research.
+
+This makes coordination of this vital work difficult, and without mechanisms in place to help with this, teams across organisations may waste time, money, and compute on work that's being duplicated in many places. While a slowdown effect like this might be a desired consequence for capabilities research, it seems highly undesirable for safety work to be hamstrung by poor coordination and collaboration between separate research groups. Finding ways to facilitate open sharing of safety work across labs, governmental institutions, academia, and external organisations seems like an important problem to address in order to globally lift the floor of AI safety research and reduce risks from this research being kept proprietary.
+
+## Future Work
+
+A study of lab publication rates of safety-focused vs. other papers over time, to provide some empirical grounding that might support anecdotal evidence of safety hoarding in this post.
+
+A more-qualified economic analysis of the likelihood of safety hoarding to be a real effect when balanced against other pressures (e.g. regulatory, reputational).
+
+A more-qualified governance perspective on incentive and regulatory structures which might be effective in encouraging open publication of critical safety research.
+
+## Acknowledgements
+
+Thanks to Marcus Williams, Rauno Arike, Marius Hobbhahn, Simon Storf, James Peters-Gill, and Kei Nishimura-Gasparian for feedback on previous drafts of this post.
+
+---
+
+[^1]: See The Current State below.
+
+[^2]: I'm not including safety researchers themselves here. These incentives seem much more likely to affect legal/comms/strategy/leadership teams, which I'm broadly terming "decision-makers".
+
+[^3]: I learned about the FMF's existence after this post was drafted. I'm not affiliated with them, but felt their work overlapped significantly with the content of this post.
+
+[^4]: This can somewhat go the other way too: publishing is a great way to build a reputation. The concern here is about exclusivity; (a) publishing in such a way that other labs can use the research themselves, and (b) publishing more than is required to keep a "safety lead" in case it's widely useful.
+
+[^5]: Naïvely you might want the safest lab to be the only one that can operate, so other labs being prevented from doing so doesn't sound so bad. Instead, I think the world in which all labs can implement the same techniques (as far as architecturally possible) is still strictly safer, since in this case there's no pre-regulation period in which less-safe labs can operate freely without these measures - even if not all labs will care about implementing all techniques.
+
+[^6]: Counterpoint: If labs anticipate this, then publishing research now might be favourable, since reputations are built over long periods and research might be obsoleted or replicated in the time it's hoarded. I weakly disagree: I think important research is much more likely to make a big impact in public discourse (e.g. going viral on social media, newspaper articles) if the public already care about it more, and it won't "make a splash" in the same way if they publish immediately and public opinion shifts later. If the research is particularly novel, other labs might not catch up by the point the public care about safety enough for the hoarding lab to finally publish.
+
+[^7]: Alex Turner notes this in his post: "I do not think that AI pessimists should stop sharing their opinions. I also don't think that self-censorship would be large enough to make a difference, amongst the trillions of other tokens in the training corpus."
+
+[^8]: Counterpoint: External researchers needn't worry so much about duplicating the work of frontier labs in a world where safety-hoarding is happening. A couple of brief arguments for this: (a) external research is completely public, so replicating this work openly is a good way to lift the safety-research floor across frontier labs; (b) replicating results using different experimental setups is good science, and may provide important validation of internal lab findings, or answer questions like generalisation of results across models.
+
+[^9]: Note that lack of publication doesn't necessarily point to safety hoarding, as discussed in Neutral Explanations of Unpublished Work.
+
+[^10]: This type of diffusion feels unlikely to have global reach, e.g. reaching AGI labs in China.
+
+[^11]: For example, labs might try to reframe safety research as capabilities (exploiting the blurry line), or forgo investing as much in safety research at all.`;
+        document.getElementById('content').innerHTML = new marked.Marked()
+            .use(markedFootnote())
+            .parse(content);
+
+        // Update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

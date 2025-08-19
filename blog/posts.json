@@ -1,5 +1,15 @@
 [
   {
+    "title": "On closed-door AI safety research",
+    "date": "2025-08-18",
+    "description": "An exploration of why frontier AI labs might keep safety research internal, and what this means for overall AI safety progress",
+    "tags": [
+      "ai-safety",
+      "ai-governance"
+    ],
+    "slug": "on-closed-door-ai-safety-research"
+  },
+  {
     "title": "Polysemanticity",
     "date": "2025-06-07",
     "description": "A Modern Major General parody about polysemanticity and superposition in neural networks",
