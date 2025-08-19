@@ -1,5 +1,39 @@
+/* Use Georgia font for better readability */
+
 .blog-content {
     padding-top: 3rem;
+}
+
+/* Override font for blog post content */
+.blog-post .post-content {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+.blog-post .post-content h1,
+.blog-post .post-content h2,
+.blog-post .post-content h3,
+.blog-post .post-content h4,
+.blog-post .post-content h5,
+.blog-post .post-content h6 {
+    font-family: 'Merriweather', serif; /* Keep headers in Merriweather */
+    font-weight: 500;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.blog-post .post-content p {
+    margin-bottom: 1.25rem;
+}
+
+.blog-post .post-content blockquote {
+    font-style: italic;
+    border-left: 4px solid rgba(0, 0, 0, 0.1);
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    color: rgba(0, 0, 0, 0.8);
 }
 
 .blog-header {
