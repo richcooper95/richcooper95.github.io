@@ -273,6 +273,11 @@ body {
     height: 60px;
 }
 
+.icon-tile[href*="linkedin"] .tile-image {
+    width: 58%;
+    height: 58%;
+}
+
 .tile-card[href*="whist"] .tile-image {
     width: 80px; /* Wider to accommodate the card layout */
     height: 60px;
