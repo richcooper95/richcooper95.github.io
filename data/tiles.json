@@ -22,7 +22,7 @@
     },
     {
       "title": "About Me",
-      "description": "Research Manager at <a href='https://matsprogram.org' target='_blank' rel='noopener noreferrer'>MATS Research</a> (London) and previously a MATS 8.0/8.1 scholar. Mainly worked on building black-box monitors for AI agents, with some red-teaming experience. Teacher at ML4Good and 80,000 Hours AI safety specialist. Ex-software engineer (7yrs) and studied theoretical physics at Oxford.",
+      "description": "Research Manager at <a href='https://matsprogram.org' target='_blank' rel='noopener noreferrer'>MATS Research</a> (London) and previously a MATS 8.0/8.1 scholar, mainly working on building black-box monitors for AI agents, control-relevant capability evaluations, and some red-teaming.<br><br>I studied <a href='https://mmathphys.physics.ox.ac.uk/' target='_blank' rel='noopener noreferrer'>Mathematical and Theoretical Physics</a> at Oxford (2013-17), focusing on plasma physics and nuclear fusion with a <a href='/static/resources/MMathPhys_Dissertation_394365.pdf' target='_blank' rel='noopener noreferrer'>dissertation</a> on turbulence in magnetic fusion plasmas.<br><br>I found AI safety through 80,000 Hours four months into a Physics PhD at Imperial, which motivated me to leave the PhD in early 2018 and upskill as a software engineer instead. I transitioned into AI safety by completing <a href='https://bluedot.org/courses/alignment/1/1' target='_blank' rel='noopener noreferrer'>AI Safety Fundamentals</a> in 2024 and <a href='https://ml4good.org' target='_blank' rel='noopener noreferrer'>ML4Good</a> in 2025.<br><br>Outside of my work at MATS, I teach at ML4Good and advise as an <a href='https://80000hours.org/' target='_blank' rel='noopener noreferrer'>80,000 Hours</a> AI safety specialist.",
       "link": "https://matsprogram.org",
       "gradient": "linear-gradient(135deg, rgba(255, 217, 155, 0.9), rgba(255, 198, 92, 0.9))",
       "columnSpan": 2,
@@ -65,9 +65,9 @@
       "title": "LessWrong",
       "description": "My LessWrong profile",
       "link": "https://www.lesswrong.com/users/richbc",
-      "image": "/static/images/lesswrong.svg",
+      "image": "/static/images/lesswrong.png",
       "imageAlt": "LessWrong icon",
-      "gradient": "linear-gradient(135deg, rgba(198, 255, 255, 0.9), rgba(155, 206, 255, 0.9))",
+      "gradient": "linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(235, 235, 235, 0.9))",
       "columnSpan": 1,
       "gridSpan": 2,
       "type": "icon"
@@ -76,39 +76,12 @@
       "title": "Twitter",
       "description": "My X profile",
       "link": "https://x.com/richb_c",
-      "image": "/static/images/x-logo.svg",
+      "image": "/static/images/x.png",
       "imageAlt": "X icon",
-      "gradient": "linear-gradient(135deg, rgba(215, 215, 215, 0.9), rgba(245, 245, 245, 0.9))",
+      "gradient": "linear-gradient(135deg, rgba(155, 206, 255, 0.9), rgba(255, 255, 255, 0.9))",
       "columnSpan": 1,
       "gridSpan": 2,
       "type": "icon"
-    },
-    {
-      "title": "Nomination Whist",
-      "description": "A site I built to score and record games of Nomination Whist.",
-      "link": "https://whist.bartoncooper.com/",
-      "image": "/static/images/card-drawing-N.png",
-      "imageAlt": "What's Trumps logo",
-      "gradient": "linear-gradient(135deg, rgba(255, 155, 155, 0.9), rgba(255, 218, 218, 0.9))",
-      "columnSpan": 1
-    },
-    {
-      "title": "2048",
-      "description": "My terminal-based implementation of the 2048 game.",
-      "link": "https://github.com/richcooper95/twenty-forty-eight",
-      "image": "/static/images/2048.png",
-      "imageAlt": "Screenshot of my 2048 terminal implementation",
-      "gradient": "linear-gradient(135deg, rgba(155, 155, 155, 0.9), rgba(198, 255, 179, 0.9))",
-      "columnSpan": 1
-    },
-    {
-      "title": "Master's Dissertation",
-      "description": "Some cool plasma physics (gyrokinetics) I did at university.",
-      "link": "/static/resources/MMathPhys_Dissertation_394365.pdf",
-      "image": "/static/images/gyrokinetics.png",
-      "imageAlt": "Excerpt from my Master's dissertation",
-      "gradient": "linear-gradient(135deg, rgba(236, 179, 255, 0.9), rgba(179, 179, 255, 0.9))",
-      "columnSpan": 1
     }
   ]
 }
