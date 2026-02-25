@@ -121,8 +121,8 @@
               if (blogPosts.length > 0) {
                 blogContent += `<div class="blog-tile-column right-column">`;
 
-                // Show up to 2 most recent posts
-                const recentPosts = blogPosts.slice(0, 2);
+                // Show all posts, newest first
+                const recentPosts = blogPosts;
                 recentPosts.forEach(post => {
                   // Truncate description if too long
                   const shortDescription = post.description.length > 60
