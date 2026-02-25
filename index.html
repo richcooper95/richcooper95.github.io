@@ -105,7 +105,7 @@
 
             tileElement.className = "tile-card";
             tileElement.style.backgroundImage = tile.gradient;
-            const tileSpan = Number(tile.gridSpan) || (Number(tile.columnSpan) === 2 ? 6 : 3);
+            const tileSpan = Number(tile.gridSpan) || (Number(tile.columnSpan) === 2 ? 10 : 5);
             tileElement.style.setProperty('--tile-span', String(tileSpan));
 
             // Special handling for blog tile
@@ -172,6 +172,12 @@
               tileElement.classList.add('bio-tile');
               tileElement.innerHTML = `
                 <p class="tile-description">${tile.description}</p>
+              `;
+            } else if (tile.type === 'icon') {
+              // Icon-only social/contact tile
+              tileElement.classList.add('icon-tile');
+              tileElement.innerHTML = `
+                <img src="${tile.image.startsWith('/') ? tile.image : '/' + tile.image}" alt="${tile.imageAlt}" class="tile-image">
               `;
             } else {
               // Standard tile

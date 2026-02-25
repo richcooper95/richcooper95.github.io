@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="LessWrong icon">
+  <rect width="256" height="256" rx="48" fill="#e6f2ff"/>
+  <path d="M58 58v140h140v-26H84V58z" fill="#2f6fb2"/>
+  <path d="M114 98h84v26h-58v74h-26z" fill="#2f6fb2"/>
+</svg>
