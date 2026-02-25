@@ -2,8 +2,8 @@
   "header": {
     "title": "Hi, I'm Rich.",
     "emoji": "👋",
-    "description": "Research Manager at <a href='https://matsprogram.org' target='_blank' rel='noopener noreferrer'>MATS Research</a>.",
-    "subDescription": "(London, UK)",
+    "description": "Research Manager at <a href='https://matsprogram.org' target='_blank' rel='noopener noreferrer'>MATS Research</a>, based in Ware.",
+    "subDescription": "(Where? Ware. Just north of London.)",
     "image": "/static/images/me_new.jpg",
     "imageAlt": "Rich Barton-Cooper",
     "gradient": "linear-gradient(135deg, rgba(255, 198, 92, 0.9), rgba(255, 241, 168, 0.9))"
@@ -24,10 +24,9 @@
       "title": "About Me",
       "description": "Research Manager at <a href='https://matsprogram.org' target='_blank' rel='noopener noreferrer'>MATS Research</a> (London) and previously a MATS 8.0/8.1 scholar. Mainly worked on building black-box monitors for AI agents, with some red-teaming experience. Teacher at ML4Good and 80,000 Hours AI safety specialist. Ex-software engineer (7yrs) and studied theoretical physics at Oxford.",
       "link": "https://matsprogram.org",
-      "image": "/static/images/me_new.jpg",
-      "imageAlt": "Photo of Rich Barton-Cooper",
       "gradient": "linear-gradient(135deg, rgba(255, 217, 155, 0.9), rgba(255, 198, 92, 0.9))",
-      "columnSpan": 2
+      "columnSpan": 2,
+      "type": "bio"
     },
     {
       "title": "Github",
@@ -36,7 +35,8 @@
       "image": "/static/images/github.png",
       "imageAlt": "Github logo",
       "gradient": "linear-gradient(135deg, rgba(179, 255, 155, 0.9), rgba(255, 198, 255, 0.9))",
-      "columnSpan": 1
+      "columnSpan": 1,
+      "gridSpan": 2
     },
     {
       "title": "LinkedIn",
@@ -45,7 +45,18 @@
       "image": "/static/images/linkedin.png",
       "imageAlt": "LinkedIn logo",
       "gradient": "linear-gradient(135deg, rgba(155, 206, 255, 0.9), rgba(198, 255, 255, 0.9))",
-      "columnSpan": 1
+      "columnSpan": 1,
+      "gridSpan": 2
+    },
+    {
+      "title": "Email",
+      "description": "Say hello via email!",
+      "link": "mailto:richwjcooper@gmail.com",
+      "image": "/static/images/email.png",
+      "imageAlt": "Email logo",
+      "gradient": "linear-gradient(135deg, rgba(255, 217, 155, 0.9), rgba(255, 179, 155, 0.9))",
+      "columnSpan": 1,
+      "gridSpan": 2
     },
     {
       "title": "Nomination Whist",
@@ -72,15 +83,6 @@
       "image": "/static/images/gyrokinetics.png",
       "imageAlt": "Excerpt from my Master's dissertation",
       "gradient": "linear-gradient(135deg, rgba(236, 179, 255, 0.9), rgba(179, 179, 255, 0.9))",
-      "columnSpan": 1
-    },
-    {
-      "title": "Email",
-      "description": "Say hello via email!",
-      "link": "mailto:richwjcooper@gmail.com",
-      "image": "/static/images/email.png",
-      "imageAlt": "Email logo",
-      "gradient": "linear-gradient(135deg, rgba(255, 217, 155, 0.9), rgba(255, 179, 155, 0.9))",
       "columnSpan": 1
     }
   ]

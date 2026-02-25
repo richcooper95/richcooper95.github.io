@@ -84,24 +84,29 @@
 
           data.tiles.forEach((tile, index) => {
             console.log(`Rendering tile ${index + 1}:`, tile.title);
-            const tileElement = document.createElement('a');
+            const isBioTile = tile.type === 'bio';
+            const tileElement = document.createElement(isBioTile ? 'div' : 'a');
 
-            // Check if it's an external URL or mailto link
-            const isExternal = tile.link.startsWith('http://') ||
-                               tile.link.startsWith('https://') ||
-                               tile.link.startsWith('mailto:');
+            if (!isBioTile) {
+              // Check if it's an external URL or mailto link
+              const isExternal = tile.link.startsWith('http://') ||
+                                 tile.link.startsWith('https://') ||
+                                 tile.link.startsWith('mailto:');
 
-            // Only prepend slash for internal links that don't already have one
-            tileElement.href = isExternal ? tile.link :
-                              (tile.link.startsWith('/') ? tile.link : '/' + tile.link);
+              // Only prepend slash for internal links that don't already have one
+              tileElement.href = isExternal ? tile.link :
+                                (tile.link.startsWith('/') ? tile.link : '/' + tile.link);
 
-            // Don't open blog links in a new tab
-            if (tile.type !== 'blog') {
-              tileElement.target = "_blank";
+              // Don't open blog links in a new tab
+              if (tile.type !== 'blog') {
+                tileElement.target = "_blank";
+              }
             }
 
             tileElement.className = "tile-card";
             tileElement.style.backgroundImage = tile.gradient;
+            const tileSpan = Number(tile.gridSpan) || (Number(tile.columnSpan) === 2 ? 6 : 3);
+            tileElement.style.setProperty('--tile-span', String(tileSpan));
 
             // Special handling for blog tile
             if (tile.type === 'blog') {
@@ -162,6 +167,12 @@
                   });
                 });
               }, 0);
+            } else if (tile.type === 'bio') {
+              // Text-only bio tile (no image)
+              tileElement.classList.add('bio-tile');
+              tileElement.innerHTML = `
+                <p class="tile-description">${tile.description}</p>
+              `;
             } else {
               // Standard tile
               tileElement.innerHTML = `
