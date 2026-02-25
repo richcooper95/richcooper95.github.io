@@ -341,14 +341,14 @@ body {
     }
 
     #tiles-container {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
+        grid-template-columns: repeat(10, minmax(0, 1fr));
         grid-template-rows: auto;
         gap: 1.5rem;
     }
 
-    /* Force all tiles to full width on mobile */
-    .tile-card {
-        grid-column: span 1;
+    /* Keep content cards full-width, but allow icon row to stay compact */
+    .tile-card:not(.icon-tile) {
+        grid-column: span 10;
     }
 
     .tile-card {
@@ -358,6 +358,13 @@ body {
         width: 100%;
         margin: 0 auto;
         max-width: 500px; /* Limit maximum width on mobile */
+    }
+
+    .icon-tile {
+        grid-column: span 2;
+        min-height: 0 !important;
+        padding: 0.6rem;
+        max-width: none;
     }
 
     /* Header adjustments */
@@ -409,8 +416,9 @@ body {
     .right-column {
         padding-right: 0;
         padding-left: 0;
-        max-height: 180px;
+        max-height: none;
         overflow-y: auto;
+        justify-content: flex-start;
     }
 
     .recent-post {
