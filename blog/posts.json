@@ -1,5 +1,15 @@
 [
   {
+    "title": "Base64Bench: How good are LLMs at base64, and why care about it?",
+    "date": "2025-10-05",
+    "description": "A benchmark for evaluating LLMs on base64 encoding/decoding, with results and monitoring implications.",
+    "tags": [
+      "ai-capabilities",
+      "ai-safety"
+    ],
+    "slug": "base64bench-how-good-are-llms-at-base64-and-why-care-about-it"
+  },
+  {
     "title": "On closed-door AI safety research",
     "date": "2025-08-18",
     "description": "An exploration of why frontier AI labs might keep safety research internal, and what this means for overall AI safety progress",

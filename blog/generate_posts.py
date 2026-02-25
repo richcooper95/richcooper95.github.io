@@ -72,6 +72,8 @@ def generate_post_html(metadata, content, slug):
         }
     """
 
+    content_json = json.dumps(content)
+
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,6 +89,15 @@ def generate_post_html(metadata, content, slug):
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;1,300;1,700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked-footnote/dist/index.umd.min.js"></script>
+    <script>
+        window.MathJax = {{
+            tex: {{
+                inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
+                displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']]
+            }}
+        }};
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
 {footnote_css}
     </style>
@@ -117,7 +128,7 @@ def generate_post_html(metadata, content, slug):
 
     <script>
         // Render Markdown content
-        const content = `{content.replace('`', '\\`')}`;
+        const content = {content_json};
         document.getElementById('content').innerHTML = new marked.Marked()
             .use(markedFootnote())
             .parse(content);
