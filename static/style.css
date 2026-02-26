@@ -6,6 +6,15 @@ body {
     min-height: 100vh;
 }
 
+a {
+    color: #1f4f82;
+}
+
+a:hover,
+a:focus {
+    color: #173c63;
+}
+
 .background-container {
     overflow: hidden;
     position: relative;
