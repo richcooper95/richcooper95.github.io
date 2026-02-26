@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;1,300;1,700&display=swap" rel="stylesheet">
   </head>
 
-  <body>
+  <body data-style="landscape">
     <div class="background-container">
       <div class="background-image"></div>
 
@@ -57,7 +57,7 @@
               <img src="${header.image.startsWith('/') ? header.image : '/' + header.image}" alt="${header.imageAlt}" class="header-image">
             </div>
           `;
-          document.getElementById('header-section').style.backgroundImage = header.gradient;
+          document.getElementById('header-section').style.setProperty('--header-gradient', header.gradient);
 
           // Render tiles
           const tilesContainer = document.getElementById('tiles-container');
@@ -104,7 +104,7 @@
             }
 
             tileElement.className = "tile-card";
-            tileElement.style.backgroundImage = tile.gradient;
+            tileElement.style.setProperty('--tile-gradient', tile.gradient);
             const tileSpan = Number(tile.gridSpan) || (Number(tile.columnSpan) === 2 ? 10 : 5);
             tileElement.style.setProperty('--tile-span', String(tileSpan));
 

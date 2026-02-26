@@ -49,7 +49,9 @@ body {
     align-items: center;
     padding: 2rem 3rem;
     border-radius: 1.5rem;
-    background: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.9);
+    background-image: var(--header-gradient);
+    background-size: cover;
     text-align: center;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -89,7 +91,9 @@ body {
 }
 
 .tile-card {
-    background: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.9);
+    background-image: var(--tile-gradient);
+    background-size: cover;
     border-radius: 1.5rem;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     text-decoration: none;
@@ -105,6 +109,147 @@ body {
     text-align: center;
     overflow: hidden;
     position: relative;
+}
+
+body[data-style="glass"] .header-card,
+body[data-style="glass"] .tile-card {
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.15)), var(--tile-gradient);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(10px) saturate(1.15);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+}
+
+body[data-style="glass"] .header-card {
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.18)), var(--header-gradient);
+}
+
+body[data-style="minimal"] .header-card,
+body[data-style="minimal"] .tile-card {
+    background-image: none;
+    background-color: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+body[data-style="minimal"] .tile-card:hover:not(.bio-tile) {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+/* Gradient cards with coordinated background-inspired tones */
+body[data-style="landscape"] .header-card {
+    background-image: linear-gradient(145deg, rgba(192, 218, 236, 0.94), rgba(242, 226, 184, 0.92)); /* lighter sky -> sunset yellow */
+    border: 1px solid rgba(114, 133, 150, 0.25);
+    box-shadow: 0 10px 24px rgba(74, 90, 108, 0.2);
+}
+
+body[data-style="landscape"] #tiles-container .tile-card {
+    border: 1px solid rgba(93, 110, 124, 0.2);
+    box-shadow: 0 8px 20px rgba(63, 77, 92, 0.16);
+}
+
+body[data-style="landscape"] #tiles-container .tile-card:nth-child(6n + 1) {
+    background-image: linear-gradient(145deg, rgba(194, 223, 240, 0.94), rgba(218, 208, 238, 0.92)); /* lighter sky to dusk lilac */
+}
+
+body[data-style="landscape"] #tiles-container .tile-card:nth-child(6n + 2) {
+    background-image: linear-gradient(145deg, rgba(250, 218, 177, 0.94), rgba(244, 196, 176, 0.92)); /* lighter warm sunset */
+}
+
+body[data-style="landscape"] #tiles-container .tile-card:nth-child(6n + 3) {
+    background-image: linear-gradient(145deg, rgba(233, 217, 176, 0.94), rgba(248, 236, 207, 0.92)); /* lighter sand/dune */
+}
+
+body[data-style="landscape"] #tiles-container .tile-card:nth-child(6n + 4) {
+    background-image: linear-gradient(145deg, rgba(188, 212, 180, 0.94), rgba(162, 194, 171, 0.92)); /* lighter coastal foliage */
+}
+
+body[data-style="landscape"] #tiles-container .tile-card:nth-child(6n + 5) {
+    background-image: linear-gradient(145deg, rgba(178, 207, 224, 0.94), rgba(149, 183, 206, 0.92)); /* lighter sea blues */
+}
+
+body[data-style="landscape"] #tiles-container .tile-card:nth-child(6n + 6) {
+    background-image: linear-gradient(145deg, rgba(213, 206, 231, 0.94), rgba(181, 194, 220, 0.92)); /* lighter evening sky */
+}
+
+/* Chain the first three full-width cards into one continuous gradient flow */
+body[data-style="landscape"] #tiles-container .tile-card.blog-tile {
+    background-image: linear-gradient(145deg, rgba(242, 226, 184, 0.94), rgba(244, 198, 169, 0.92)); /* lighter sunset yellow -> sunset orange */
+}
+
+body[data-style="landscape"] #tiles-container .tile-card.bio-tile {
+    background-image: linear-gradient(145deg, rgba(244, 198, 169, 0.94), rgba(183, 209, 226, 0.92)); /* lighter sunset orange -> light sea blue */
+}
+
+body[data-style="landscape"] .style-btn.active {
+    background: rgba(103, 128, 149, 0.34);
+}
+
+body[data-style="landscape"] .header-card,
+body[data-style="landscape"] .tile-card {
+    color: #121a24;
+}
+
+body[data-style="landscape"] .header-card small,
+body[data-style="landscape"] .tile-card .tile-description,
+body[data-style="landscape"] .tile-card .blog-subtitle,
+body[data-style="landscape"] .tile-card .post-description {
+    color: #18212b;
+}
+
+/* Landscape theme: bottom icon row gets single-hue, scene-matched tones */
+body[data-style="landscape"] .icon-tile[href*="github"] {
+    background-image: linear-gradient(145deg, rgba(210, 224, 198, 0.95), rgba(189, 209, 178, 0.92)); /* lighter muted foliage family */
+}
+
+body[data-style="landscape"] .icon-tile[href*="linkedin"] {
+    background-image: linear-gradient(145deg, rgba(194, 216, 232, 0.95), rgba(169, 196, 217, 0.92)); /* lighter soft sea-sky family */
+}
+
+body[data-style="landscape"] .icon-tile[href*="mailto"] {
+    background-image: linear-gradient(145deg, rgba(235, 220, 186, 0.95), rgba(217, 196, 160, 0.92)); /* lighter warm dune family */
+}
+
+body[data-style="landscape"] .icon-tile[href*="lesswrong"] {
+    background-image: linear-gradient(145deg, rgba(197, 202, 226, 0.95), rgba(172, 182, 212, 0.92)); /* lighter dusk-lilac family */
+}
+
+body[data-style="landscape"] .icon-tile[href*="x.com"] {
+    background-image: linear-gradient(145deg, rgba(184, 189, 217, 0.95), rgba(160, 168, 201, 0.92)); /* lighter twilight family */
+}
+
+/* Cohesive palettes sampled from the background tones */
+body[data-style="coastal"] .header-card,
+body[data-style="coastal"] .tile-card {
+    background-image: linear-gradient(145deg, rgba(233, 243, 247, 0.92), rgba(201, 222, 231, 0.9));
+    border: 1px solid rgba(111, 145, 164, 0.25);
+    box-shadow: 0 8px 20px rgba(65, 90, 107, 0.18);
+}
+
+body[data-style="coastal"] .style-btn.active {
+    background: rgba(111, 145, 164, 0.32);
+}
+
+body[data-style="dune"] .header-card,
+body[data-style="dune"] .tile-card {
+    background-image: linear-gradient(145deg, rgba(246, 237, 214, 0.93), rgba(224, 205, 169, 0.9));
+    border: 1px solid rgba(161, 132, 87, 0.3);
+    box-shadow: 0 9px 22px rgba(117, 91, 57, 0.2);
+}
+
+body[data-style="dune"] .style-btn.active {
+    background: rgba(161, 132, 87, 0.32);
+}
+
+body[data-style="twilight"] .header-card,
+body[data-style="twilight"] .tile-card {
+    background-image: linear-gradient(145deg, rgba(228, 232, 241, 0.92), rgba(188, 197, 217, 0.9));
+    border: 1px solid rgba(93, 107, 139, 0.28);
+    box-shadow: 0 10px 24px rgba(54, 63, 87, 0.22);
+}
+
+body[data-style="twilight"] .style-btn.active {
+    background: rgba(93, 107, 139, 0.34);
 }
 
 /* Blog tile specific styles */
@@ -395,6 +540,10 @@ body {
         width: 180px;
         height: 180px;
         margin: 0 auto;
+    }
+
+    .bio-tile .tile-description {
+        line-height: 1.65;
     }
 
     .background-container {
