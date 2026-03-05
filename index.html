@@ -85,9 +85,11 @@
           data.tiles.forEach((tile, index) => {
             console.log(`Rendering tile ${index + 1}:`, tile.title);
             const isBioTile = tile.type === 'bio';
-            const tileElement = document.createElement(isBioTile ? 'div' : 'a');
+            const isPapersTile = tile.type === 'papers';
+            const isNonLinkTile = isBioTile || isPapersTile;
+            const tileElement = document.createElement(isNonLinkTile ? 'div' : 'a');
 
-            if (!isBioTile) {
+            if (!isNonLinkTile) {
               // Check if it's an external URL or mailto link
               const isExternal = tile.link.startsWith('http://') ||
                                  tile.link.startsWith('https://') ||
@@ -179,6 +181,35 @@
               tileElement.innerHTML = `
                 <img src="${tile.image.startsWith('/') ? tile.image : '/' + tile.image}" alt="${tile.imageAlt}" class="tile-image">
               `;
+            } else if (tile.type === 'papers') {
+              // Papers tile with clickable paper rows
+              let papersContent = `
+                <div class="blog-tile-column left-column">
+                  ${tile.image ? `<img src="${tile.image.startsWith('/') ? tile.image : '/' + tile.image}" alt="${tile.imageAlt || 'Papers icon'}" class="blog-icon">` : ''}
+                  <h3 class="blog-title">${tile.title}</h3>
+                  <p class="blog-subtitle">${tile.description || ''}</p>
+                </div>
+              `;
+
+              if (Array.isArray(tile.papers) && tile.papers.length > 0) {
+                papersContent += `<div class="blog-tile-column right-column">`;
+                tile.papers.forEach(paper => {
+                  papersContent += `
+                    <a class="paper-row" href="${paper.link}" target="_blank" rel="noopener noreferrer">
+                      <h4>${paper.title}</h4>
+                      <p class="paper-metadata">${paper.metadata || ''}</p>
+                    </a>
+                  `;
+                });
+                papersContent += `</div>`;
+              } else {
+                papersContent += `<div class="blog-tile-column right-column">
+                  <p class="no-posts">No papers yet</p>
+                </div>`;
+              }
+
+              tileElement.innerHTML = papersContent;
+              tileElement.classList.add('papers-tile');
             } else {
               // Standard tile
               tileElement.innerHTML = `

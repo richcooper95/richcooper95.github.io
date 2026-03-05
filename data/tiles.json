@@ -21,6 +21,22 @@
         "blogTitle": "Rich Text"
     },
     {
+      "title": "Papers",
+      "description": "Publications and preprints.",
+      "image": "/static/images/paper-icon.svg",
+      "imageAlt": "Papers icon",
+      "gradient": "linear-gradient(135deg, rgba(236, 179, 255, 0.9), rgba(179, 179, 255, 0.9))",
+      "columnSpan": 2,
+      "type": "papers",
+      "papers": [
+        {
+          "title": "Constitutional Black-Box Monitoring for Scheming in LLM Agents",
+          "metadata": "Storf, Barton-Cooper, Peters-Gill, Hobbhahn · arXiv:2603.00829 · 2026",
+          "link": "https://arxiv.org/abs/2603.00829"
+        }
+      ]
+    },
+    {
       "title": "About Me",
       "description": "Research Manager at <a href='https://matsprogram.org' target='_blank' rel='noopener noreferrer'>MATS Research</a> (London) and previously a MATS 8.0/8.1 scholar, mainly working on <a href='https://www.lesswrong.com/posts/sb8WmKNgwzefa6oaJ/building-black-box-scheming-monitors' target='_blank' rel='noopener noreferrer'>building black-box monitors for AI agents</a>, <a href='https://www.lesswrong.com/posts/5F6ncBfjh2Bxnm6CJ/base64bench-how-good-are-llms-at-base64-and-why-care-about' target='_blank' rel='noopener noreferrer'>control-relevant capability evaluations</a>, and some red-teaming (not yet published).<br><br>I studied <a href='https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/physics' target='_blank' rel='noopener noreferrer'>Physics</a> (2013-16) and <a href='https://mmathphys.physics.ox.ac.uk/' target='_blank' rel='noopener noreferrer'>Mathematical and Theoretical Physics</a> (2016-17) at Oxford, focusing on plasma physics and nuclear fusion with a <a href='/static/resources/MMathPhys_Dissertation_394365.pdf' target='_blank' rel='noopener noreferrer'>dissertation</a> on turbulence in magnetic fusion plasmas.<br><br>I found AI safety through 80,000 Hours four months into a Physics PhD at Imperial, which motivated me to leave the PhD in early 2018 and upskill as a software engineer instead. Across 7 varied years as an engineer, I worked on <a href='https://blogs.cisco.com/sp/xr7-not-just-another-release' target='_blank' rel='noopener noreferrer'>embedded software for IOS-XR routers</a> and various developer tools at Cisco, <a href='https://duffel.com/payments' target='_blank' rel='noopener noreferrer'>travel payments backend</a> at Duffel, and a Kubernetes-based platform engineering framework (<a href='https://www.kratix.io/' target='_blank' rel='noopener noreferrer'>Kratix</a>) at Syntasso.<br><br>I transitioned into AI safety by completing <a href='https://bluedot.org/courses/alignment/1/1' target='_blank' rel='noopener noreferrer'>AI Safety Fundamentals</a> in 2024 and <a href='https://ml4good.org' target='_blank' rel='noopener noreferrer'>ML4Good</a> in 2025. Outside of my work at MATS, I teach at ML4Good and advise as an <a href='https://80000hours.org/' target='_blank' rel='noopener noreferrer'>80,000 Hours</a> AI safety specialist.",
       "link": "https://matsprogram.org",
